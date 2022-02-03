@@ -3,7 +3,7 @@ public class Recursion {
     //int n = Integer.parseInt(args[0]);
     //System.out.println();
     //printAllWords(n);
-    printNoDoubleLetterWords(3, new char[]{'a','b','c'});
+    printNoDoubleLetterWords(3, new char[]{'a','z','f'});
   }
   public static void printAllWords(int length){
     printAllWords(length,"");
