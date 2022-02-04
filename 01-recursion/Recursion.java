@@ -1,7 +1,7 @@
 public class Recursion {
   public static void main(String[] args){
     int n = Integer.parseInt(args[0]);
-    System.out.println(sqrt(n));
+    System.out.println(countNoDoubleLetterWords(n,""));
     //printAllWords(n);
     //printNoDoubleLetterWords(3, new char[]{'a','z','f'});
   }
@@ -36,6 +36,7 @@ public class Recursion {
     return reverse(s.substring(1))+s.charAt(0);
   }
   public static long countNoDoubleLetterWords(int length,String word){
+    long count = 0;
     if (word.length() >= length){
       count = 1;
     } else {
