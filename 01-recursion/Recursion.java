@@ -1,9 +1,9 @@
 public class Recursion {
   public static void main(String[] args){
     //int n = Integer.parseInt(args[0]);
-    //System.out.println();
+    System.out.println(reverse("abcdef"));
     //printAllWords(n);
-    printNoDoubleLetterWords(3, new char[]{'a','z','f'});
+    //printNoDoubleLetterWords(3, new char[]{'a','z','f'});
   }
   public static void printAllWords(int length){
     printAllWords(length,"");
