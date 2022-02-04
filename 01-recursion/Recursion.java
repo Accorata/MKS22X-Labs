@@ -1,7 +1,7 @@
 public class Recursion {
   public static void main(String[] args){
     int n = Integer.parseInt(args[0]);
-    System.out.println(countNoDoubleLetterWords(n,""));
+    System.out.println(fibIter(n,0,1));
     //printAllWords(n);
     //printNoDoubleLetterWords(3, new char[]{'a','z','f'});
   }
@@ -47,7 +47,6 @@ public class Recursion {
       }
     }
     return count;
-            //Hint: not a wrapper method, but you must call it starting with "" as your word.
   }
   public static double sqrt(double n) {
     if (n == 0) return 0;
@@ -56,5 +55,11 @@ public class Recursion {
   public static double sqrt(double n, double guess) {
     if (guess*guess < n*1.00001 && guess*guess > n*0.99999) return guess;
     return sqrt(n, ( n / guess + guess) / 2);
+  }
+  public int fibIter(int n, int f1, int f2){
+    if (n == 0) return f1;
+    if (n == 1) return f2;
+    return fibIter(n-1, f2, f1+f2);
+          //DO NOT call fibIter more than once
   }
 }
