@@ -35,6 +35,19 @@ public class Recursion {
     if (s.length() <= 1) return s;
     return reverse(s.substring(1))+s.charAt(0);
   }
+  public static long countNoDoubleLetterWords(int length,String word){
+    if (word.length() >= length){
+      count = 1;
+    } else {
+      for (char c = 'a'; c<='z'; c++){
+        if (word.length() == 0 || word.lastIndexOf(c) != word.length()-1){
+          count += countNoDoubleLetterWords(length, word+c);
+        }
+      }
+    }
+    return count;
+            //Hint: not a wrapper method, but you must call it starting with "" as your word.
+  }
   public static double sqrt(double n) {
     if (n == 0) return 0;
     return sqrt(n, 1);
