@@ -1,7 +1,7 @@
 public class Recursion {
   public static void main(String[] args){
-    //int n = Integer.parseInt(args[0]);
-    System.out.println(reverse("abcdef"));
+    int n = Integer.parseInt(args[0]);
+    System.out.println(sqrt(n));
     //printAllWords(n);
     //printNoDoubleLetterWords(3, new char[]{'a','z','f'});
   }
@@ -34,5 +34,13 @@ public class Recursion {
   public static String reverse(String s){
     if (s.length() <= 1) return s;
     return reverse(s.substring(1))+s.charAt(0);
+  }
+  public static double sqrt(double n) {
+    if (n == 0) return 0;
+    return sqrt(n, 1);
+  }
+  public static double sqrt(double n, double guess) {
+    if (guess*guess < n*1.00001 && guess*guess > n*0.99999) return guess;
+    return sqrt(n, ( n / guess + guess) / 2);
   }
 }
