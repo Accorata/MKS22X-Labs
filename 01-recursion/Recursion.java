@@ -1,7 +1,7 @@
 public class Recursion {
   public static void main(String[] args){
     //int n = Integer.parseInt(args[0]);
-    System.out.println(sumArr(new int[]{5,7},new int[]{5,4}));
+    System.out.println(partialSum(new int[]{5,7},0));
     //printAllWords(n);
     //printNoDoubleLetterWords(3, new char[]{'a','z','f'});
   }
@@ -61,17 +61,19 @@ public class Recursion {
     if (n == 1) return f1;
     return fibIter(n-1, f1+f2, f1);
   }
-  // public static boolean partialSum(int[] ary, int target){
-  //   return partialSum(ary, target, new int[arr.length]);
-  // }
-  // public static boolean partialSum(int[] ary, int target, int[] excluded){
-  //   if (sumArr(ary)-excluded == target) return true;
-  //   for (int i = 0; i<ary.length; i++) {
-  //     if (excluded.length >= ary.length) return target == 0;
-  //     if (partialSum(ary, target, excluded+ary[i])) return true;
-  //   }
-  //   return false;
-  // }
+  public static boolean partialSum(int[] ary, int target){
+    return partialSum(ary, target, new int[ary.length], 0);
+  }
+  public static boolean partialSum(int[] ary, int target, int[] excluded, int length){
+    if (sumArr(ary, excluded) == target) return true;
+    for (int i = 0; i<ary.length; i++) {
+      if (length >= ary.length) return target == 0;
+      excluded[i] = ary[i];
+      //length++;
+      if (partialSum(ary, target, excluded, length+1)) return true;
+    }
+    return false;
+  }
   public static int sumArr(int[] ary, int[] excluded){
     int sum = 0;
     for (int i = 0; i<ary.length; i++) sum += ary[i];
