@@ -1,7 +1,7 @@
 public class Recursion {
   public static void main(String[] args){
-    int n = Integer.parseInt(args[0]);
-    System.out.println(sumArr(new int[]{n,n}));
+    //int n = Integer.parseInt(args[0]);
+    System.out.println(withoutThis(new int[]{5,7},1));
     //printAllWords(n);
     //printNoDoubleLetterWords(3, new char[]{'a','z','f'});
   }
@@ -61,9 +61,12 @@ public class Recursion {
     if (n == 1) return f1;
     return fibIter(n-1, f1+f2, f1);
   }
-  //public static boolean partialSum(int[] ary, int target){
+  public static boolean partialSum(int[] ary, int target){
 
-  //}
+  }
+  public static boolean partialSum(int[] ary, int target, int excluded){
+
+  }
   public static int sumArr(int[] ary){
     int sum = 0;
     for (int i = 0; i<ary.length; i++) sum += ary[i];
