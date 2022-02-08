@@ -1,7 +1,7 @@
 public class Recursion {
   public static void main(String[] args){
     //int n = Integer.parseInt(args[0]);
-    System.out.println(splitArray(new int[]{5,7,2,3,0}));
+    System.out.println(splitArray(new int[]{4,7,2,14,4}));
     //printAllWords(n);
     //printNoDoubleLetterWords(3, new char[]{'a','z','f'});
   }
