@@ -1,7 +1,7 @@
 public class Recursion {
   public static void main(String[] args){
     //int n = Integer.parseInt(args[0]);
-    System.out.println(partialSum(new int[]{5,7,2,3,0},2));
+    System.out.println(splitArray(new int[]{5,7,2,3,0}));
     //printAllWords(n);
     //printNoDoubleLetterWords(3, new char[]{'a','z','f'});
   }
@@ -65,8 +65,15 @@ public class Recursion {
     return partialSum(ary, target, 0, 0);
   }
   public static boolean partialSum(int[] ary, int target, int sum, int index){
-    if (sum  == target) return true;
+    if (sum == target) return true;
     if (index >= ary.length) return false;
     return partialSum(ary, target, sum+ary[index], index+1) || partialSum(ary, target, sum, index+1);
+  }
+  public static boolean splitArray(int[] ary){
+    return splitArray(ary, 0, 0, 0);
+  }
+  public static boolean splitArray(int[] ary, int sum1, int sum2, int index){
+    if (index == ary.length) return sum1 == sum2;
+    return splitArray(ary, sum1+ary[index], sum2, index+1) || splitArray(ary, sum1, sum2+ary[index], index+1);
   }
 }
