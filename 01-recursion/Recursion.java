@@ -69,10 +69,4 @@ public class Recursion {
     if (index >= ary.length) return false;
     return partialSum(ary, target, sum+ary[index], index+1) || partialSum(ary, target, sum, index+1);
   }
-  public static int sumArr(int[] ary, int[] excluded){
-    int sum = 0;
-    for (int i = 0; i<ary.length; i++) sum += ary[i];
-    for (int i = 0; i<excluded.length; i++) sum -= excluded[i];
-    return sum;
-  }
 }
