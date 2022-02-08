@@ -1,7 +1,8 @@
 public class Recursion {
   public static void main(String[] args){
-    //int n = Integer.parseInt(args[0]);
-    System.out.println(splitArray(new int[]{4,7,2,14,4}));
+    int n = Integer.parseInt(args[0]);
+    //System.out.println(splitArray(new int[]{4,7,2,14,4}));
+    System.out.println(intToString(n,0));
     //printAllWords(n);
     //printNoDoubleLetterWords(3, new char[]{'a','z','f'});
   }
@@ -75,5 +76,12 @@ public class Recursion {
   public static boolean splitArray(int[] ary, int sum1, int sum2, int index){
     if (index == ary.length) return sum1 == sum2;
     return splitArray(ary, sum1+ary[index], sum2, index+1) || splitArray(ary, sum1, sum2+ary[index], index+1);
+  }
+  public static String intToString (int num, int index){
+    String ans = "";
+    String[] nums = new String[]{"Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
+    if (index == 0) return nums[num%10];
+//Set ans to other stuff based on index and num
+    return ans + intToString(num, index-1);
   }
 }
