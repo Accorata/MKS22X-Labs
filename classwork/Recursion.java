@@ -66,5 +66,15 @@ public class Recursion {
     if (added && nums[index] == 1) return groupSum5(nums, target, sum, index+1, false);
     return groupSum5(nums, target, sum+nums[index], index+1, false) || groupSum5(nums, target, sum, index+1, false);
   }
+  public static boolean groupSumClump(int start, int[] nums, int target) {
+    return groupSumClump(nums, target, 0, start, false, -1);
+  }
+  public static boolean groupSumClump(int[] nums, int target, int sum, int index, boolean added, int last){
+    if (index >= nums.length) return sum == target;
+    if (added && nums[index] == last) return groupSumClump(nums, target, sum+nums[index], index+1, true, last);
+    if (added && nums[index] != last) return groupSumClump(nums, target, sum, index+1, false, last);
+    last = nums[index];
+    return groupSumClump(nums, target, sum+nums[index], index+1, true, last) || groupSumClump(nums, target, sum, index+1, false, last);
+  }
 }
 //*RecursionClasswork X for commits
