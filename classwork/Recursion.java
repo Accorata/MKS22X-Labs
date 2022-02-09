@@ -48,4 +48,13 @@ public class Recursion {
     if (index == nums.length) return (sum1 % 10 == 0) && (sum2 % 2 == 1);
     return splitOdd10(nums, sum1+nums[index], sum2, index+1) || splitOdd10(nums, sum1, sum2+nums[index], index+1);
   }
+  public static boolean split53(int[] nums) {
+    return split53(nums, 0, 0, 0);
+  }
+  public static boolean split53(int[] nums, int sum1, int sum2, int index){
+    if (index == nums.length) return sum1 == sum2;
+    if (nums[index] % 5 == 0) return split53(nums, sum1+nums[index], sum2, index+1);
+    if (nums[index] % 3 == 0) return split53(nums, sum1, sum2+nums[index], index+1);
+    return split53(nums, sum1, sum2, index+1);
+  }
 }
