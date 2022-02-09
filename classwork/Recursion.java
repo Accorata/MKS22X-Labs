@@ -57,5 +57,14 @@ public class Recursion {
     if (nums[index] % 3 == 0) return split53(nums, sum1, sum2+nums[index], index+1);
     return split53(nums, sum1+nums[index], sum2, index+1) || split53(nums, sum1, sum2+nums[index], index+1);
   }
+  public static boolean groupSum5(int start, int[] nums, int target) {
+    return groupSum5(nums, target, 0, start, false);
+  }
+  public static boolean groupSum5(int[] nums, int target, int sum, int index, boolean added){
+    if (index >= nums.length) return sum == target;
+    if (nums[index] % 5 == 0) return groupSum5(nums, target, sum+nums[index], index+1, true);
+    if (added && nums[index] == 1) return groupSum5(nums, target, sum, index+1, false);
+    return groupSum5(nums, target, sum+nums[index], index+1, false) || groupSum5(nums, target, sum, index+1, false);
+  }
 }
 //*RecursionClasswork X for commits
