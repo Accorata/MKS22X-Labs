@@ -3,6 +3,9 @@ public class Recursion {
   public static boolean partialSum(int[] ary, int target){
     return partialSum(ary, target, 0, 0);
   }
+  public static boolean partialSum(int[] ary, int target, int start){
+    return partialSum(ary, target, 0, start);
+  }
   public static boolean partialSum(int[] ary, int target, int sum, int index){
     if (sum == target) return true;
     if (index >= ary.length) return false;
