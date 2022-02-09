@@ -41,4 +41,11 @@ public class Recursion {
     if (added) return groupNoAdj(nums, target, sum, index+1, false);
     return groupNoAdj(nums, target, sum+nums[index], index+1, true) || groupNoAdj(nums, target, sum, index+1, false);
   }
+  public static boolean splitOdd10(int[] nums) {
+    return splitOdd10(nums, 0, 0, 0);
+  }
+  public static boolean splitOdd10(int[] nums, int sum1, int sum2, int index){
+    if (index == nums.length) return (sum1 % 10 == 0) && (sum2 % 2 == 1);
+    return splitOdd10(nums, sum1+nums[index], sum2, index+1) || splitOdd10(nums, sum1, sum2+nums[index], index+1);
+  }
 }
