@@ -33,4 +33,12 @@ public class Recursion {
     if (nums[index] == 6) return groupSum6(nums, target, sum+6, index+1);
     return groupSum6(nums, target, sum+nums[index], index+1) || groupSum6(nums, target, sum, index+1);
   }
+  public static boolean groupNoAdj(int start, int[] nums, int target) {
+    return groupNoAdj(nums, target, 0, start, false);
+  }
+  public static boolean groupNoAdj(int[] nums, int target, int sum, int index, boolean added){
+    if (index >= nums.length) return sum == target;
+    if (added) return groupNoAdj(nums, target, sum+nums[index], index+1, false);
+    return groupNoAdj(nums, target, sum+nums[index], index+1, true) || groupNoAdj(nums, target, sum, index+1, false);
+  }
 }
