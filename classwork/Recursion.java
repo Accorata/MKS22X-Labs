@@ -29,8 +29,7 @@ public class Recursion {
     return groupSum6(nums, target, 0, start);
   }
   public static boolean groupSum6(int[] nums, int target, int sum, int index){
-    if (sum == target) return true;
-    if (index >= nums.length) return false;
+    if (index >= nums.length) return sum == target;
     if (nums[index] == 6) return groupSum6(nums, target, sum+6, index+1);
     return groupSum6(nums, target, sum+nums[index], index+1) || groupSum6(nums, target, sum, index+1);
   }
