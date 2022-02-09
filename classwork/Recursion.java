@@ -38,7 +38,7 @@ public class Recursion {
   }
   public static boolean groupNoAdj(int[] nums, int target, int sum, int index, boolean added){
     if (index >= nums.length) return sum == target;
-    if (added) return groupNoAdj(nums, target, sum+nums[index], index+1, false);
+    if (added) return groupNoAdj(nums, target, sum, index+1, false);
     return groupNoAdj(nums, target, sum+nums[index], index+1, true) || groupNoAdj(nums, target, sum, index+1, false);
   }
 }
