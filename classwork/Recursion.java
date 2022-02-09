@@ -3,7 +3,7 @@ public class Recursion {
   public static boolean partialSum(int[] ary, int target){
     return partialSum(ary, target, 0, 0);
   }
-  public static boolean partialSum(int[] ary, int target, int start){
+  public static boolean partialSum(int start, int[] ary, int target){
     return partialSum(ary, target, 0, start);
   }
   public static boolean partialSum(int[] ary, int target, int sum, int index){
@@ -24,5 +24,14 @@ public class Recursion {
     if (index == 0) return nums[num%10];
 //Set ans to other stuff based on index and num
     return ans + intToString(num, index-1);
+  }
+  public static boolean groupSum6(int start, int[] nums, int target) {
+    return groupSum6(nums, target, 0, start);
+  }
+  public static boolean groupSum6(int[] nums, int target, int sum, int index){
+    if (sum == target) return true;
+    if (index >= nums.length) return false;
+    if (nums[index] == 6) return groupSum6(nums, target, sum+6, index+1);
+    return groupSum6(nums, target, sum+nums[index], index+1) || groupSum6(nums, target, sum, index+1);
   }
 }
