@@ -55,6 +55,6 @@ public class Recursion {
     if (index == nums.length) return sum1 == sum2;
     if (nums[index] % 5 == 0) return split53(nums, sum1+nums[index], sum2, index+1);
     if (nums[index] % 3 == 0) return split53(nums, sum1, sum2+nums[index], index+1);
-    return split53(nums, sum1, sum2, index+1);
+    return split53(nums, sum1+nums[index], sum2, index+1) || split53(nums, sum1, sum2+nums[index], index+1);
   }
 }
