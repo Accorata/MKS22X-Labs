@@ -1,5 +1,8 @@
 //*RecursionClasswork X for commits
 public class Recursion {
+  public static void main(String[] args){
+    System.out.println(groupSumClump(0, new int[]{1, 2, 4, 8, 1}, 14));
+  }
   public static boolean partialSum(int[] ary, int target){
     return partialSum(ary, target, 0, 0);
   }
@@ -72,7 +75,7 @@ public class Recursion {
   public static boolean groupSumClump(int[] nums, int target, int sum, int index, boolean added, int last){
     if (index >= nums.length) return sum == target;
     if (added && nums[index] == last) return groupSumClump(nums, target, sum+nums[index], index+1, true, last);
-    if (added && nums[index] != last) return groupSumClump(nums, target, sum, index+1, false, last);
+    if (!added && nums[index] == last) return groupSumClump(nums, target, sum, index+1, false, last);
     last = nums[index];
     return groupSumClump(nums, target, sum+nums[index], index+1, true, last) || groupSumClump(nums, target, sum, index+1, false, last);
   }
