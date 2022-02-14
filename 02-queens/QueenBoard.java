@@ -21,9 +21,11 @@ public class QueenBoard {
   }
   public QueenBoard(int size){
     board = new int [size][size];
-    addQueen(1,1);
-    addQueen(2,3);
-    //removeQueen(1,1);
+    //addQueen(0,size-1);
+    //addQueen(size-1,0);
+    //addQueen(2,3);
+    //removeQueen(0,0);
+    //removeQueen(0,0);
     //removeQueen(2,3);
   }
   public String toString(){
