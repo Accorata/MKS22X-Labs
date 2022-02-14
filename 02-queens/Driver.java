@@ -3,6 +3,6 @@ public class Driver {
     QueenBoard a = new QueenBoard(2);
     System.out.println(a.toStringDebug());
     System.out.println(a);
-    System.out.println(a.solve(0,0));
+    System.out.println(a.solve());
   }
 }
