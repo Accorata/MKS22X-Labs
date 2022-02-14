@@ -25,6 +25,8 @@ public class QueenBoard {
     board = new int [size][size];
     addQueen(1,1);
     addQueen(2,3);
+    removeQueen(1,1);
+    removeQueen(2,3);
   } //: initialize a square 2d array of the specified size. All values should be 0
   //public String toString(){} //: see format in the comments below.
   public String toStringDebug(){
