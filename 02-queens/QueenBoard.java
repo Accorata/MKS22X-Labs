@@ -11,7 +11,6 @@ public class QueenBoard {
     }
     return true;
   }
-
   private void removeQueen(int r, int c){
     board[r][c] = 0;
     for (int i = 1; i<board.length-r; i++){
@@ -20,14 +19,13 @@ public class QueenBoard {
       if (c+i<board.length) board[r+i][c+i] -= 1;
     }
   }
-
   public QueenBoard(int size){
     board = new int [size][size];
     addQueen(1,1);
     addQueen(2,3);
     //removeQueen(1,1);
     //removeQueen(2,3);
-  } //: initialize a square 2d array of the specified size. All values should be 0
+  }
   public String toString(){
     String ans = "";
     for (int i = 0; i<board.length; i++){
@@ -39,7 +37,7 @@ public class QueenBoard {
       if (i != board.length-1) ans += "\n";
     }
     return ans;
-  } //: see format in the comments below.
+  }
   public String toStringDebug(){
     String ans = "";
     for (int i = 0; i<board.length; i++){
