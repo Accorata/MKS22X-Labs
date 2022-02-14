@@ -25,8 +25,21 @@ public class QueenBoard {
   public QueenBoard(int size){
     board = new int [size][size];
   } //: initialize a square 2d array of the specified size. All values should be 0
-  public String toString(){} //: see format in the comments below.
-  public String toStringDebug(){}
-  public boolean solve(){} //note: wrapper method
-  public int countSolutions(){} //note: wrapper method
+  //public String toString(){} //: see format in the comments below.
+  _ _ Q _
+          *Q _ _ _
+          *_ _ _ Q
+          *_ Q _ _
+  public String toStringDebug(){
+    String ans = "";
+    for (int i = 0; i<board.length; i++){
+      for (int j = 0; j<board.length; j++){
+        ans += board[r][c]+" ";
+      }
+      ans += "\n";
+    }
+    return ans;
+  }
+  //public boolean solve(){} //note: wrapper method
+  //public int countSolutions(){} //note: wrapper method
 }
