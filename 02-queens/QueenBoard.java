@@ -59,9 +59,12 @@ public class QueenBoard {
       if (addQueen(r,c)){
         System.out.println(Text.go(1,1));
         System.out.println(this);//can change this to your debug print as well
-        Text.wait(400);//change the delay 1000 = 1 second
+        Text.wait(200);//change the delay 1000 = 1 second
         if(solve(r+1)) return true;
         removeQueen(r,c);
+        System.out.println(Text.go(1,1));
+        System.out.println(this);//can change this to your debug print as well
+        Text.wait(200);//change the delay 1000 = 1 second
       }
     }
     return false;
