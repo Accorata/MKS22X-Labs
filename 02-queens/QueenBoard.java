@@ -51,14 +51,15 @@ public class QueenBoard {
     return ans;
   }
   public boolean solve(){
-    return solve(0,0);
+    return solve(0);
   }
-  public boolean solve(int r, int c){
-    if (r >= board.length) return false;
-    if (addQueen(r,c) && r == board.length-1) return true;
-    for (int i = 0; i<board.length; i++){
-      addQueen(r,c);
-      if (solve(r+1,i)) return true;
+  public boolean solve(int r){
+    if (r >= board.length) return true;
+    for (int c = 0; c<board.length; c++){
+      if (addQueen(r,c)){
+        if(solve(r+1)) return true;
+        removeQueen(r,c);
+      }
     }
     return false;
     //if (addQueen(r,c)) return r == board.length-1 ||
