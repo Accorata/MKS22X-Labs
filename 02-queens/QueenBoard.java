@@ -68,7 +68,16 @@ public class QueenBoard {
       }
     }
     return false;
-    //if (addQueen(r,c)) return r == board.length-1 ||
   }
   //public int countSolutions(){} //note: wrapper method
+  public int countSolutions(int r, int count){
+    if (r >= board.length) return count+1;
+    for (int c = 0; c<board.length; c++){
+      if (addQueen(r,c)){
+        count += countSolutions(r+1, 0);
+        removeQueen(r,c);
+      }
+    }
+    return count;
+  }
 }
