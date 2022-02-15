@@ -57,6 +57,9 @@ public class QueenBoard {
     if (r >= board.length) return true;
     for (int c = 0; c<board.length; c++){
       if (addQueen(r,c)){
+        System.out.println(Text.go(1,1));
+        System.out.println(this);//can change this to your debug print as well
+        Text.wait(400);//change the delay 1000 = 1 second
         if(solve(r+1)) return true;
         removeQueen(r,c);
       }
