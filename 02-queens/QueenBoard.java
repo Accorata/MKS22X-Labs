@@ -29,12 +29,6 @@ public class QueenBoard {
   }
   public QueenBoard(int size){
     board = new int [size][size];
-    //addQueen(0,size-1);
-    //addQueen(size-1,0);
-    //addQueen(2,3);
-    //removeQueen(0,0);
-    //removeQueen(0,0);
-    //removeQueen(2,3);
   }
   public String toString(){
     String ans = "";
@@ -59,6 +53,11 @@ public class QueenBoard {
     return ans;
   }
   public boolean solve(){
+    for (int i = 0; i<board.length; i++){
+      for (int j = 0; j<board.length; j++){
+        if (board[i][j] != 0) throws IllegalStateException;
+      }
+    }
     return solve(0);
   }
   public boolean solve(int r){
