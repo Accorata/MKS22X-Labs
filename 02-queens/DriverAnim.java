@@ -5,7 +5,7 @@ public class DriverAnim {
       System.out.println(Text.go(1,1));
       int n = Integer.parseInt(args[0]);
       QueenBoard a = new QueenBoard(n);
-      a.solve();
+      System.out.println(a.solve());
       //call your solve
       System.out.println(Text.RESET);
   }
