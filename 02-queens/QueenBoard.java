@@ -1,8 +1,14 @@
 public class QueenBoard {
   private int[][]board;
   private boolean animated = false;
-  private int delay = 1000; 
+  private int delay = 1000;
 
+  public void setAnimate(boolean newValue){
+    animated = newValue;
+  }
+  public void setDelay(int newValue){
+    delay = newValue;
+  }
   private boolean addQueen(int r, int c){
     if (board[r][c] != 0) return false;
     board[r][c] = -1;
