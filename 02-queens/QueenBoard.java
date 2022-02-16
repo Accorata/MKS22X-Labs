@@ -81,7 +81,9 @@ public class QueenBoard {
     }
     return false;
   }
-  //public int countSolutions(){} //note: wrapper method
+  public int countSolutions(){
+    return countSolutions(0,0);
+  }
   public int countSolutions(int r, int count){
     if (r >= board.length) return count+1;
     for (int c = 0; c<board.length; c++){
