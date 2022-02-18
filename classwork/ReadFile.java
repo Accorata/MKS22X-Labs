@@ -28,10 +28,11 @@ public class ReadFile {
     data = new Scanner(f);
     String line;
     for (int i = 0; i<dimensions[0]; i++){
-      line = data.nextLine();
-      for (int j = 0; j<dimensions[1]; j++){
-        ans[i][j] = line.charAt(j);
-      }
+      ans[i] = data.nextLine().toCharArray();
+      // line = data.nextLine();
+      // for (int j = 0; j<dimensions[1]; j++){
+      //   ans[i][j] = line.charAt(j);
+      // }
     }
     return ans;
   }
