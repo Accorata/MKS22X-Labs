@@ -26,7 +26,7 @@ public class ReadFile {
     }
     char[][] ans = new char[dimensions[0]][dimensions[1]];
     data = new Scanner(f);
-    String line;
+    //String line;
     for (int i = 0; i<dimensions[0]; i++){
       ans[i] = data.nextLine().toCharArray();
       // line = data.nextLine();
