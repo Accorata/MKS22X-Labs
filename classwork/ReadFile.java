@@ -5,8 +5,7 @@ import java.util.Arrays;
 public class ReadFile {
   public static void main(String args[]) {
     try {
-      File text = new File("Maze1.txt");
-      char[][] data = ReadFileToArr(text);
+      char[][] data = getValuesFromFile("Maze1.txt");
       for(int i = 0; i<data.length; i++){
         for(int j = 0; j<data[0].length; j++){
           System.out.print(data[i][j]);
@@ -17,7 +16,8 @@ public class ReadFile {
       e.printStackTrace();
     }
   }
-  public static char[][] ReadFileToArr(File f) throws FileNotFoundException {
+  public static char[][] getValuesFromFile(String filename) throws FileNotFoundException {
+    File f = new File(filename);
     Scanner data = new Scanner(f);
     int[] dimensions = new int[2];
     while(data.hasNextLine()){
