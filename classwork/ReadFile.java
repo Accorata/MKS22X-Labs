@@ -1,20 +1,23 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.Arrays;
 public class ReadFile {
-  public static void main(String args[]) throws FileNotFoundException {
-    //instead of a try/catch, you can throw the FileNotFoundException.
-    //This is generally bad behavior
-
+  public static void main(String args[]) {
     File text = new File("Maze1.txt");
-    // can be a path like: "/full/path/to/file.txt" or "../data/file.txt"
-
-    //inf stands for the input file
-    Scanner inf = new Scanner(text);
-
-    while(inf.hasNextLine()){
-      String line = inf.nextLine();
-      System.out.println(line);//hopefully you can do other things with the line
+    try {
+      System.out.println(Arrays.toString(ReadFileToArr(text)));
+    } catch (FileNotFoundException e){
+      e.printStackTrace();
     }
+  }
+  public static int[] ReadFileToArr(File f) throws FileNotFoundException {
+    Scanner data = new Scanner(f);
+    int[] dimensions = new int[2];
+    while(data.hasNextLine()){
+      dimensions[0] = data.nextLine().length();
+      dimensions[1]++;
+    }
+    return dimensions;
   }
 }
