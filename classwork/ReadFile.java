@@ -30,7 +30,7 @@ public class ReadFile {
     for (int i = 0; i<dimensions[0]; i++){
       line = data.nextLine();
       for (int j = 0; j<dimensions[1]; j++){
-        ans[i][j] = 'a';//line.getCharAt(j);
+        ans[i][j] = line.charAt(j);
       }
     }
     return ans;
