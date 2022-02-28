@@ -7,12 +7,12 @@ public class Maze{
 
   public Maze(String filename) throws FileNotFoundException{
     animate = false;
-    try {
-      maze = ReadFile.getValuesFromFile(filename);
-    } catch (FileNotFoundException e){
-      e.printStackTrace();
-      System.exit(1);
-    }
+    // try {
+    maze = ReadFile.getValuesFromFile(filename);
+    // } catch (FileNotFoundException e){
+    //   e.printStackTrace();
+    //   System.exit(1);
+    // }
   }
   private void wait(int millis){
     try {
@@ -31,11 +31,11 @@ public class Maze{
   }
   public String toString(){
     String ans = "";
-    for(int i = 0; i<data.length; i++){
-      for(int j = 0; j<data[0].length; j++){
-        ans+=data[i][j];
+    for(int i = 0; i<maze.length; i++){
+      for(int j = 0; j<maze[0].length; j++){
+        ans+=maze[i][j];
       }
-      if (i != data.length-1) ans += "/n";
+      if (i != maze.length-1) ans += "/n";
     }
     return ans;
   }
