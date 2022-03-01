@@ -56,13 +56,13 @@ public class Maze{
     if (maze[row][col] != ' ') return -1;
     maze[row][col] = '@';
 
-    int ans = solve[row-1][col];
+    int ans = solve(row-1,col);
     if (ans > -1) return ans;
-    ans = solve[row][col-1];
+    ans = solve(row,col-1);
     if (ans > -1) return ans;
-    ans = solve[row+1][col];
+    ans = solve(row+1,col);
     if (ans > -1) return ans;
-    ans = solve[row][col+1];
+    ans = solve(row,col+1);
     if (ans > -1) return ans;
 
     if (maze[row][col] == 'E') {
