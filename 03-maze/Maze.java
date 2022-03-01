@@ -39,4 +39,43 @@ public class Maze{
     }
     return ans;
   }
+  public int solve(){
+    if(animate){
+      clearTerminal();
+    }
+              //start solving at the location of the s.
+    return solve(1,7);
+  }
+  private int solve(int row, int col){
+    if(animate){
+      gotoTop();
+      System.out.println(this);
+      wait(50);
+    }
+
+    if (maze[row][col] != ' ') return -1;
+    maze[row][col] = '@';
+
+    int ans = solve[row-1][col];
+    if (ans > -1) return ans;
+    ans = solve[row][col-1];
+    if (ans > -1) return ans;
+    ans = solve[row+1][col];
+    if (ans > -1) return ans;
+    ans = solve[row][col+1];
+    if (ans > -1) return ans;
+
+    if (maze[row][col] == 'E') {
+      int count = 0;
+      for(int i = 0; i<maze.length; i++){
+        for(int j = 0; j<maze[0].length; j++){
+          if (maze[row][col] == '@') count++;
+        }
+      }
+      return count;
+    }
+
+    maze[row][col] = '.';
+    return -1;
+  }
 }
