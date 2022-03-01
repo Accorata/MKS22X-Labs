@@ -1,7 +1,7 @@
 import java.io.FileNotFoundException;
 public class Driver{
   public static void main(String[]args){
-    String filename = "maze1.txt";
+    String filename = args[0];
 
     try{
       Maze f;
