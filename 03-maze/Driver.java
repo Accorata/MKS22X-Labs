@@ -8,7 +8,7 @@ public class Driver{
       f = new Maze(filename);
       System.out.println(f);
       f.setAnimate(true);
-      System.out.println(f.solve()+" steps");  
+      System.out.println(f.solve()+" steps");
     } catch(FileNotFoundException e){
       System.out.println("Invalid filename: "+filename);
     }
