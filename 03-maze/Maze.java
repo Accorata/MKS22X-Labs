@@ -35,7 +35,7 @@ public class Maze{
       for(int j = 0; j<maze[0].length; j++){
         ans+=maze[i][j];
       }
-      if (i != maze.length-1) ans += "/n";
+      if (i != maze.length-1) ans += "\n";
     }
     return ans;
   }
