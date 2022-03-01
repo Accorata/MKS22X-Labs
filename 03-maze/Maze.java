@@ -43,8 +43,12 @@ public class Maze{
     if(animate){
       clearTerminal();
     }
-              //start solving at the location of the s.
-    return solve(1,7);
+    for (int i = 0; i<maze.length; i++){
+      for(int j = 0; j<maze[0].length; j++){
+        if (maze[i][j] == 'S') return solve(i,j);
+      }
+    }
+    return -1;
   }
   private int solve(int row, int col){
     if(animate){
@@ -53,7 +57,17 @@ public class Maze{
       wait(50);
     }
 
-    if (maze[row][col] != ' ') return -1;
+    if (maze[row][col] == 'E') {
+      int count = 0;
+      for(int i = 0; i<maze.length; i++){
+        for(int j = 0; j<maze[0].length; j++){
+          if (maze[i][j] == '@') count++;
+        }
+      }
+      return count;
+    }
+
+    if (maze[row][col] != ' ' && maze[row][col] != 'S') return -1;
     maze[row][col] = '@';
 
     int ans = solve(row-1,col);
@@ -64,16 +78,6 @@ public class Maze{
     if (ans > -1) return ans;
     ans = solve(row,col+1);
     if (ans > -1) return ans;
-
-    if (maze[row][col] == 'E') {
-      int count = 0;
-      for(int i = 0; i<maze.length; i++){
-        for(int j = 0; j<maze[0].length; j++){
-          if (maze[row][col] == '@') count++;
-        }
-      }
-      return count;
-    }
 
     maze[row][col] = '.';
     return -1;
