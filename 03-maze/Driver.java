@@ -9,6 +9,7 @@ public class Driver{
       System.out.println(f);
       f.setAnimate(true);
       System.out.println(f.solve()+" steps");
+      System.out.println(f);
     } catch(FileNotFoundException e){
       System.out.println("Invalid filename: "+filename);
     }
