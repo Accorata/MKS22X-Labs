@@ -51,12 +51,6 @@ public class Maze{
     return -1;
   }
   private int solve(int row, int col){
-    if(animate){
-      gotoTop();
-      System.out.println(this);
-      wait(50);
-    }
-
     if (maze[row][col] == 'E') {
       int count = 0;
       for(int i = 0; i<maze.length; i++){
@@ -69,6 +63,11 @@ public class Maze{
 
     if (maze[row][col] != ' ' && maze[row][col] != 'S') return -1;
     maze[row][col] = '@';
+    if(animate){
+      gotoTop();
+      System.out.println(this);
+      wait(50);
+    }
 
     int ans = solve(row-1,col);
     if (ans > -1) return ans;
@@ -80,6 +79,11 @@ public class Maze{
     if (ans > -1) return ans;
 
     maze[row][col] = '.';
+    if(animate){
+      gotoTop();
+      System.out.println(this);
+      wait(50);
+    }
     return -1;
   }
 }
