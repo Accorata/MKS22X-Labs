@@ -14,6 +14,18 @@ public class Maze{
     //   System.exit(1);
     // }
   }
+  public int rows (){
+    return maze.length;
+  }
+  public int cols (){
+    return maze[0].length;
+  }
+  public char pos (int row, int col){
+    return maze[row][col];
+  }
+  public void set (int row, int col, char newChar){
+    maze[row][col] = newChar;
+  }
   private void wait(int millis){
     try {
       Thread.sleep(millis);
