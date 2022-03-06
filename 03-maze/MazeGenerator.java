@@ -1,24 +1,21 @@
-import java.util.ArrayList;
+import java.util.*;
 public class MazeGenerator {
-  public static void generate(Maze m, int row, int col){
-    if (row != 0 && row != m.rows()-1 && col != 0 && col != m.cols()-1) {
+  public static void generate(char[][]maze, int row, int col){
+    if (row != 0 && row != maze.length-1 && col != 0 && col != maze[0].length-1) {
       int count = 0;
-      if (m.pos(row-1,col) == ' ') count++;
-      if (m.pos(row+1,col) == ' ') count++;
-      if (m.pos(row,col-1) == ' ') count++;
-      if (m.pos(row,col+1) == ' ') count++;
+      if (maze[row-1][col] == ' ') count++;
+      if (maze[row+1][col] == ' ') count++;
+      if (maze[row][col-1] == ' ') count++;
+      if (maze[row][col+1] == ' ') count++;
       if (count < 2) {
-        ArrayList<Integer> options = new Arraylist<Integer>[] {
-          {
-            add([-1,0]);
-            add([1,0]);
-            add([0,-1]);
-            add([0,1]);
-          }
-        };
-        for (int i = 3; i>=0; i--){
-          int r = (int)(Math.random()*i);
-          generate(m, row+options.get(r)[0], col+options.get(r)[1]);
+        maze[row][col] = ' ';
+        ArrayList<Integer> options = new ArrayList<Integer>();
+        Collections.addAll(options, -1,0, 1,0, 0,-1, 0,1);
+        for (int i = 0; i<4; i++){
+          int r = (int)(Math.random()*options.size()/2);
+          generate(maze, row+options.get(r), col+options.get(r+1));
+          //generate(maze, row+options.get(r), col+options.get(r));
+          options.remove(r);
           options.remove(r);
         }
 
