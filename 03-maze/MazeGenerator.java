@@ -9,6 +9,8 @@ public class MazeGenerator {
       if (maze[row][col+1] == ' ') count++;
       if (count < 2) {
         maze[row][col] = ' ';
+        // System.out.println(KDriver.arrToStr(maze));
+        // wait(50);
         ArrayList<Integer> options = new ArrayList<Integer>();
         Collections.addAll(options, -1,0, 1,0, 0,-1, 0,1);
         for (int i = 0; i<4; i++){
@@ -20,6 +22,12 @@ public class MazeGenerator {
         }
 
       }
+    }
+  }
+  private static void wait(int millis){
+    try {
+      Thread.sleep(millis);
+    } catch (InterruptedException e) {
     }
   }
 }

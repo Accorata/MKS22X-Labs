@@ -7,15 +7,13 @@ import java.io.*;
             int startrow = Integer.parseInt(args[2]);
             int startcol = Integer.parseInt(args[3]);
             char[][]maze = new char[rows][cols];
-            //you must fill maze with '#'
             for (int i = 0; i<rows; i++){
               for (int j = 0; j<cols; j++){
                 maze[i][j] = '#';
               }
             }
             MazeGenerator.generate(maze,startrow,startcol);
-            //Print the maze here.
-            System.out.println("MAZE!");//You need a way to show the maze without the array brackets etc.
+            System.out.println(arrToStr(maze));
           }else if(args.length == 1  || args.length == 2){
               try{
                   Maze m = new Maze(args[0]);
@@ -33,6 +31,15 @@ import java.io.*;
               System.out.println("To animate:  java KDriver FILE_NAME animated");
               System.out.println("To Generate: java KDriver rows cols startRow startCol");
           }
-
+      }
+      public static String arrToStr(char[][] maze){
+        String ans = "";
+        for(int i = 0; i<maze.length; i++){
+          for(int j = 0; j<maze[0].length; j++){
+            ans+=maze[i][j];
+          }
+          if (i != maze.length-1) ans += "\n";
+        }
+        return ans;
       }
   }
