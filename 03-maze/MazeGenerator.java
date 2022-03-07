@@ -1,16 +1,13 @@
 import java.util.*;
 public class MazeGenerator {
   public static void generate(char[][]maze, int row, int col){
-    while (!solve(maze,row,col)){
-      generateR(maze, row, col);
-      int endR = 1;
-      if (row < (maze.length-2)/2) endR = maze.length-2;
-      int endC = 1;
-      if (col < (maze[0].length-2)/2) endC = maze[0].length-2;
-      generateR(maze, endR, endC);
-      maze[row][col] = 'S';
-      maze[endR][endC] = 'E';
-    }
+    generateR(maze, row, col);
+    int endR = 1;
+    if (row < (maze.length-2)/2) endR = maze.length-2;
+    int endC = 1;
+    if (col < (maze[0].length-2)/2) endC = maze[0].length-2;
+    maze[row][col] = 'S';
+    maze[endR][endC] = 'E';
   }
   public static void generateR(char[][]maze, int row, int col){
     if (row != 0 && row != maze.length-1 && col != 0 && col != maze[0].length-1) {
@@ -45,7 +42,7 @@ public class MazeGenerator {
       return true;
     }
     if (maze[row][col] != ' ' && maze[row][col] != 'S') return false;
-    maze[row][col] = '@';
+    if (maze[row][col] != 'S') maze[row][col] = '@';
     boolean ans = solve(maze, row-1,col);
     if (ans) return ans;
     ans = solve(maze, row,col-1);
