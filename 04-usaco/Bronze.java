@@ -15,11 +15,10 @@ public class Bronze {
           elevs[i][j] = data.nextInt();
         }
       }
-      System.out.println(lakeElev);
-      System.out.println(stomps);
       for (int i = 0; i<stomps; i++){
         stomp(elevs, data.nextInt(), data.nextInt(), data.nextInt());
       }
+      System.out.println(lakeAmount(elevs, lakeElev));
     } catch (FileNotFoundException e){
       e.printStackTrace();
     }
@@ -36,5 +35,14 @@ public class Bronze {
         if (elevs[i][j] < newDepth) elevs[i][j] = newDepth;
       }
     }
+  }
+  public static int lakeAmount (int[][] elevs, int lakeElev) {
+    int sum = 0;
+    for (int i = 0; i<elevs.length; i++){
+      for (int j = 0; j<elevs[0].length; j++){
+        if (lakeElev-elevs[i][j] > 0) sum+=lakeElev-elevs[i][j];
+      }
+    }
+    return sum;
   }
 }
