@@ -16,7 +16,9 @@ public class Bronze {
         }
       }
       for (int i = 0; i<stomps; i++){
-        stomp(elevs, data.nextInt(), data.nextInt(), data.nextInt());
+        //int a  = data.nextInt
+        //stomp(elevs, data.nextInt()-1, data.nextInt()-1, data.nextInt());
+        stomp(elevs, data.nextInt()-1, data.nextInt()-1, data.nextInt());
       }
       System.out.println(lakeAmount(elevs, lakeElev));
     } catch (FileNotFoundException e){
@@ -24,15 +26,15 @@ public class Bronze {
     }
   }
   public static void stomp (int[][] elevs, int r, int c, int depth){
-    int newDepth = -depth;
-    for (int i = r; i<r+2; i++){
-      for (int j = c; j<c+2; j++){
+    int newDepth = 0;
+    for (int i = r; i<r+3; i++){
+      for (int j = c; j<c+3; j++){
         if (elevs[i][j]-depth > newDepth) newDepth = elevs[i][j]-depth;
       }
     }
-    for (int i = r; i<r+2; i++){
-      for (int j = c; j<c+2; j++){
-        if (elevs[i][j] < newDepth) elevs[i][j] = newDepth;
+    for (int i = r; i<r+3; i++){
+      for (int j = c; j<c+3; j++){
+        if (elevs[i][j] > newDepth) elevs[i][j] = newDepth;
       }
     }
   }
