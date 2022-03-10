@@ -17,7 +17,8 @@ public class Silver {
       }
       int[][] ways = new int[spaceX][spaceY]);
       ways[data.nextInt()][data.nextInt()] = 1;
-      ways = generateWays(space, time, ways)
+      ways = generateWays(space, time, ways);
+      System.out.println(ways[data.nextInt()][data.nextInt()]);
     } catch (FileNotFoundException e){
       e.printStackTrace();
     }
