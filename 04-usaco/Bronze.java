@@ -45,6 +45,6 @@ public class Bronze {
         if (lakeElev-elevs[i][j] > 0) sum+=lakeElev-elevs[i][j];
       }
     }
-    return sum;
+    return sum*72*72;
   }
 }
