@@ -8,14 +8,16 @@ public class Silver {
       Scanner data = new Scanner(f);
       int spaceX = data.nextInt();
       int spaceY = data.nextInt();
-      char[][] space = new char[spaceX][spaceY];
+      String[][] space = new String[spaceX][spaceY];
       int time = data.nextInt();
       for (int i = 0; i<spaceX; i++) {
-        for (int j = 0; j<spaceY; j++) {
-          space[i][j] = data.nextChar();
-        }
+        //for (int j = 0; j<spaceY; j++) {
+          String ln = data.next();
+          //space[i][j] = data.next();
+          space[i] = ln.split(" ");
+        //}
       }
-      int[][] ways = new int[spaceX][spaceY]);
+      long[][] ways = new long[spaceX][spaceY];
       ways[data.nextInt()][data.nextInt()] = 1;
       ways = generateWays(space, time, ways);
       System.out.println(ways[data.nextInt()][data.nextInt()]);
@@ -23,16 +25,16 @@ public class Silver {
       e.printStackTrace();
     }
   }
-  public static int[][] generateWays (char[][] space, int time, int[][] ways){
+  public static long[][] generateWays (String[][] space, int time, long[][] ways){
     if (time == 0) return ways;
-    int[][] ans = new int[ways.length][ways[0].length];
-    for (int i = 0; i<spaceX; i++) {
-      for (int j = 0; j<spaceY; j++) {
-        if (space.getChar(i,j) != '*') {
-          ans += ways[i-1][j];
-          ans += ways[i+1][j];
-          ans += ways[i][j-1];
-          ans += ways[i][j+1];
+    long[][] ans = new long[ways.length][ways[0].length];
+    for (int i = 0; i<space.length; i++) {
+      for (int j = 0; j<space[0].length; j++) {
+        if (space[i][j] != "*") {
+          ans[i][j] += ways[i-1][j];
+          ans[i][j] += ways[i+1][j];
+          ans[i][j] += ways[i][j-1];
+          ans[i][j] += ways[i][j+1];
         }
       }
     }
