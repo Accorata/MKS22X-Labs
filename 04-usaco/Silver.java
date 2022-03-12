@@ -13,7 +13,7 @@ public class Silver {
       data.nextLine();
       for (int i = 0; i<spaceX; i++) {
         String ln = data.nextLine();
-        System.out.println(ln);
+        //System.out.println(ln);
         for (int j = 0; j<ln.length(); j++) {
           if (ln.charAt(j) == '*') ways[i][j] = -1;
         }
