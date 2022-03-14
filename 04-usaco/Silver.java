@@ -24,7 +24,7 @@ public class Silver {
       //printAry(ways);
       System.out.println(ways[data.nextInt()-1][data.nextInt()-1]);
     } catch (FileNotFoundException e){
-      e.printStackTrace();
+      System.out.println(-1);
     }
   }
   public static long[][] generateWays (int spaceX, int spaceY, int time, long[][] ways){
