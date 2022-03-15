@@ -22,7 +22,7 @@ public class Bronze {
       }
       System.out.println(lakeAmount(elevs, lakeElev));
     } catch (FileNotFoundException e){
-      e.printStackTrace();
+      System.out.println(-1);
     }
   }
   public static void stomp (int[][] elevs, int r, int c, int depth){
