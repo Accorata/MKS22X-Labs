@@ -2,8 +2,29 @@ import java.util.Arrays;
 public class Preliminary {
   public static void main(String[] args) {
     int[] test = new int []{999,999,999,4,3,2,1,0,999,999,999};
-    System.out.println(partition(test,3,7));
-    System.out.println(Arrays.toString(test));
+    int[] tests = new int []{999,999,999,4,3,2,1,0,999,999,999};
+    //System.out.println(partition(test,3,7));
+    System.out.println(quickselect(tests, Integer.parseInt(args[0])));
+    System.out.println(Arrays.toString(tests));
+  }
+  /*return the value that is the kth smallest value of the array.
+*@param data must have a length > 0
+*@param k is 0 to data.length-1 inclusive
+*@postcondition The array may be modified. */
+  public static int quickselect(int []data, int k){
+    int start = 0;
+    int end = data.length-1;
+    int pivot = partition(data, start, end);
+    while (pivot != k) {
+      if (pivot < k){
+        start = pivot;
+        pivot = partition(data, start, end);
+      } else {
+        end = pivot;
+        pivot = partition(data, start, end);
+      }
+    }
+    return data[k];
   }
   public static int partition ( int [] data, int start, int end){
     int p = (int)(Math.random()*(end-start+1) + start);
