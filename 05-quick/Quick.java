@@ -2,7 +2,7 @@ import java.util.Arrays;
 public class Quick {
   public static void main(String[] args) {
     int[] test = new int []{999,999,999,4,3,2,1,0,999,999,999};
-    int[] ary = {2, 10, 15, 23, 0, 5};
+    int[] ary = {2, 10, 15, 23, 0, 5, 5678, -7, 0, 0, 0, 0, 0, 0, 0};
     int[] problem = {4,4,4,4,4};
     //System.out.println(partition(test,3,7));
     //System.out.println(quickselect(problem, Integer.parseInt(args[0])));
