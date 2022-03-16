@@ -8,6 +8,12 @@ public class Preliminary {
     System.out.println(quickselect(problem, Integer.parseInt(args[0])));
     System.out.println(Arrays.toString(problem));
   }
+  public static void quicksort(int[]data) {
+
+  }
+  public static void quicksort ( int [] data, int start, int end){
+
+  }
   public static int quickselect(int []data, int k){
     int start = 0;
     int end = data.length-1;
