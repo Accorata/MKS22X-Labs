@@ -4,11 +4,13 @@ public class Quick {
     int[] test = new int []{999,999,999,4,3,2,1,0,999,999,999};
     int[] ary = {2, 10, 15, 23, 0, 5, 5678, -7, 0, 0, 0, 0, 0, 0, 0};
     int[] problem = {4,4,4,4,4};
-    //System.out.println(partition(test,3,7));
-    //System.out.println(quickselect(problem, Integer.parseInt(args[0])));
-    System.out.println(Arrays.toString(ary));
-    quicksort(ary);
-    System.out.println(Arrays.toString(ary));
+    System.out.println(Arrays.toString(test));
+    System.out.println(partition(test,3,7));
+    System.out.println(Arrays.toString(test));
+    //System.out.println(quickselect(ary, Integer.parseInt(args[0])));
+    // System.out.println(Arrays.toString(ary));
+    // quicksort(ary);
+    // System.out.println(Arrays.toString(ary));
   }
   public static void quicksort(int[] data) {
     quicksort (data, 0, data.length-1);
@@ -34,6 +36,41 @@ public class Quick {
       }
     }
     return data[k];
+  }
+  public static int partitionDutch(int[] data,int lo, int hi){
+    int p = (int)(Math.random()*(hi-lo+1) + lo);
+    int lt = 0;
+    int temp = data[lo];
+    data[lo] = data[p];
+    data[p] = temp;
+    p = lo;
+    while(p < hi) {
+      if (data[p+1] == data[p]){
+        temp = data[p+1];
+        data[p+1] = data[p];
+        data[p] = temp;
+        p++;
+      } else if (data[p+1] < data[p]) {
+        temp = data[p+1];
+        data[p+1] = data[p];
+        data[p] = temp;
+        p++;
+        lt++;
+        for (int i = lt; i<p; i++){
+          //No need equal values = data[p]
+          temp = data[p+1];
+          data[p+1] = data[p];
+          data[p] = temp;
+        }
+        //Push equal values forward from lt to p
+      } else {
+        temp = data[p+1];
+        data[p+1] = data[hi];
+        data[hi] = temp;
+        hi--;
+      }
+    }
+    return p;
   }
   public static int partition ( int [] data, int start, int end){
     int p = (int)(Math.random()*(end-start+1) + start);
