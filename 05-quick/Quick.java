@@ -22,6 +22,17 @@ public class Quick {
       quicksort(data, pivot+1, end);
     }
   }
+  public static void quicksortInsertion (int[] data, int start, int end){
+    if (start < end) {
+      if (Math.abs(start-end) > 32) {
+        int pivot = partitionDutch(data, start, end);
+        quicksort(data, start, pivot-1);
+        quicksort(data, pivot+1, end);
+      } else {
+        //insertionSort(sdfghjkl);
+      }
+    }
+  }
   public static int quickselect(int []data, int k){
     int start = 0;
     int end = data.length-1;
