@@ -4,20 +4,20 @@ public class Quick {
     int[] test = new int []{999,999,999,4,3,2,1,0,0, 1, 2, 3, 4,999,999,999};
     int[] ary = {2, 10, 15, 23, 0, 5, 5678, -7, 0, 0, 0, 0, 0, 0, 0};
     int[] problem = {4,4,4,4,4};
-    System.out.println(Arrays.toString(test));
-    System.out.println(partitionDutch(test,3,12));
-    System.out.println(Arrays.toString(test));
+    // System.out.println(Arrays.toString(test));
+    // System.out.println(partitionDutch(test,3,12));
+    // System.out.println(Arrays.toString(test));
     //System.out.println(quickselect(ary, Integer.parseInt(args[0])));
-    // System.out.println(Arrays.toString(ary));
-    // quicksort(ary);
-    // System.out.println(Arrays.toString(ary));
+    System.out.println(Arrays.toString(ary));
+    quicksort(ary);
+    System.out.println(Arrays.toString(ary));
   }
   public static void quicksort(int[] data) {
     quicksort (data, 0, data.length-1);
   }
   public static void quicksort (int[] data, int start, int end){
     if (start < end) {
-      int pivot = partition(data, start, end);
+      int pivot = partitionDutch(data, start, end);
       quicksort(data, start, pivot-1);
       quicksort(data, pivot+1, end);
     }
@@ -39,15 +39,12 @@ public class Quick {
   }
   public static int partitionDutch(int[] data,int lo, int hi){
     int p = (int)(Math.random()*(hi-lo+1) + lo);
-    System.out.println(data[p]);
-    System.out.println(p);
     int lt = lo;
     int temp = data[lo];
     data[lo] = data[p];
     data[p] = temp;
     p = lo;
     while(p < hi) {
-      System.out.println(Arrays.toString(data));
       if (data[p+1] == data[p]){
         p++;
       } else if (data[p+1] < data[p]) {
