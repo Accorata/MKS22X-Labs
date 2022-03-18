@@ -17,17 +17,20 @@ public class Quick {
   }
   public static void quicksort (int[] data, int start, int end){
     if (start < end) {
-      int pivot = partitionDutch(data, start, end);
-      quicksort(data, start, pivot-1);
-      quicksort(data, pivot+1, end);
+      // int pivot = partitionDutch(data, start, end);
+      // quicksort(data, start, pivot-1);
+      // quicksort(data, pivot+1, end);
+      int[] pivot = partitionDutch(data, start, end);
+      quicksort(data, pivot[0]+1, pivot[1]-1);
+      quicksort(data, pivot[0]+1, pivot[1]-1);
     }
   }
   public static void quicksortInsertion (int[] data, int start, int end){
     if (start < end) {
       if (Math.abs(start-end) > 32) {
-        int pivot = partitionDutch(data, start, end);
-        quicksort(data, start, pivot-1);
-        quicksort(data, pivot+1, end);
+        int[] pivot = partitionDutch(data, start, end);
+        quicksort(data, pivot[0]+1, pivot[1]-1);
+        quicksort(data, pivot[0]+1, pivot[1]-1);
       } else {
         //insertionSort(sdfghjkl);
       }
@@ -48,7 +51,24 @@ public class Quick {
     }
     return data[k];
   }
-  public static int partitionDutch(int[] data,int lo, int hi){
+  public static void insertionSort(int[] data){
+    int current;
+    for (int i = 1; i<data.length; i++){
+      if (data[i] < data[i-1]) {
+        current = data[i];
+        for (int j = i; j>0; j--){
+          if (current < data[j-1]) {
+            data[j] = data[j-1];
+            data[j-1] = current;
+          } else {
+            data[j] = current;
+            j = 0;
+          }
+        }
+      }
+    }
+  }
+  public static int[] partitionDutch(int[] data,int lo, int hi){
     int p = (int)(Math.random()*(hi-lo+1) + lo);
     int lt = lo;
     int temp = data[lo];
@@ -71,7 +91,7 @@ public class Quick {
         hi--;
       }
     }
-    return p;
+    return new int[]{lt,p};
   }
   public static int partition ( int [] data, int start, int end){
     int p = (int)(Math.random()*(end-start+1) + start);
