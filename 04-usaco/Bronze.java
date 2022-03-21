@@ -20,9 +20,9 @@ public class Bronze {
         //stomp(elevs, data.nextInt()-1, data.nextInt()-1, data.nextInt());
         stomp(elevs, data.nextInt()-1, data.nextInt()-1, data.nextInt());
       }
-      System.out.println(lakeAmount(elevs, lakeElev));
+      return (lakeAmount(elevs, lakeElev));
     } catch (FileNotFoundException e){
-      System.out.println(-1);
+      return -1;
     }
   }
   public static void stomp (int[][] elevs, int r, int c, int depth){

@@ -22,9 +22,9 @@ public class Silver {
       //printAry(ways);
       ways = generateWays(spaceX, spaceY, time, ways);
       //printAry(ways);
-      System.out.println(ways[data.nextInt()-1][data.nextInt()-1]);
+      return (ways[data.nextInt()-1][data.nextInt()-1]);
     } catch (FileNotFoundException e){
-      System.out.println(-1);
+      return -1;
     }
   }
   public static long[][] generateWays (int spaceX, int spaceY, int time, long[][] ways){
