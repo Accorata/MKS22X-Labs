@@ -2,10 +2,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 public class Bronze {
-  public static void main(String args[]) {
+  public static long solve(String filename){
     //Scanner data;
     try {
-      File f = new File(args[0]);
+      File f = new File(filename);
       Scanner data = new Scanner(f);
       int[][] elevs = new int[data.nextInt()][data.nextInt()];
       int lakeElev = data.nextInt();

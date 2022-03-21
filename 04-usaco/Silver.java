@@ -2,9 +2,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 public class Silver {
-  public static void main(String args[]) {
+  public static long solve(String filename){
     try {
-      File f = new File(args[0]);
+      File f = new File(filename);
       Scanner data = new Scanner(f);
       int spaceX = data.nextInt();
       int spaceY = data.nextInt();

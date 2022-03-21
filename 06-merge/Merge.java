@@ -1,6 +1,13 @@
 public class Merge {
   public static int [] merge(int [] left, int[] right){
-          //return a new array that is the merged version of left and right
+    int[] newArr = new int[left.length+right.length];
+    int leftIndex = 0;
+    int rightIndex = 0;
+    for (int i = 0; i<new.length; i++){
+      if (left[leftIndex] >= right[rightIndex]){
+        newArr[i] 
+      }
+    }
   }
 
   public static void mergesort(data){
