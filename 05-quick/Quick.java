@@ -17,12 +17,12 @@ public class Quick {
   }
   public static void quicksort (int[] data, int start, int end){
     if (start < end) {
-      // int pivot = partition(data, start, end);
-      // quicksort(data, start, pivot-1);
-      // quicksort(data, pivot+1, end);
-      int[] pivot = partitionDutch(data, start, end);
-      quicksort(data, start, pivot[1]-1);
-      quicksort(data, pivot[0]+1, end);
+      int pivot = partition(data, start, end);
+      quicksort(data, start, pivot-1);
+      quicksort(data, pivot+1, end);
+      // int[] pivot = partitionDutch(data, start, end);
+      // quicksort(data, start, pivot[1]-1);
+      // quicksort(data, pivot[0]+1, end);
     }
   }
   public static void quicksortInsertion (int[] data, int start, int end){
