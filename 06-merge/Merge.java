@@ -11,10 +11,6 @@ public class Merge {
     int leftIndex = 0;
     int rightIndex = 0;
     for (int i = 0; i<newArr.length; i++){
-      // if () {
-      //   newArr[i] = right[rightIndex];
-      //   rightIndex++;
-      // }
       if (leftIndex < left.length && left[leftIndex] <= right[rightIndex]){
         newArr[i] = left[leftIndex];
         leftIndex++;
@@ -30,18 +26,18 @@ public class Merge {
   //   int [] temp  =  mergeSortH(data);
   //   //copy temp into data
   // }
-  //
-  // public static int[] mergesortH(data){
-  //   if (data.length > 1){
-  //      left = new int[data.length/2];
-  //      for (int i = 0; i<left.length; i++){
-  //        left[i] = data[i];
-  //      }
-  //      right = new int[data.length-data.length/2];
-  //      for (int i = 0; i<right.length; i++){
-  //        right[i] = data[i+data.length/2];
-  //      }
-  //      return merge(mergesortH(left),mergesortH(right))
-  //   }
-  // }
+
+  public static int[] mergesortH(data){
+    if (data.length > 1){
+       left = new int[data.length/2];
+       for (int i = 0; i<left.length; i++){
+         left[i] = data[i];
+       }
+       right = new int[data.length-data.length/2];
+       for (int i = 0; i<right.length; i++){
+         right[i] = data[i+data.length/2];
+       }
+       return merge(mergesortH(left),mergesortH(right));
+    }
+  }
 }
