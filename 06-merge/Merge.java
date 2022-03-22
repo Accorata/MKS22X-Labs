@@ -1,8 +1,8 @@
 import java.util.Arrays;
 public class Merge {
   public static void main(String[] args) {
-    int[] a = new int[]{3,4,4,5,0,6};
-    int[] b = new int[]{-3, 6, -1, 0, 0, 5};
+    int[] a = new int[]{0,3,4,4,5,6};
+    int[] b = new int[]{-3,-1, 0, 0, 5, 6};
     int[] n = merge(a,b);
     System.out.println(Arrays.toString(n));
   }
