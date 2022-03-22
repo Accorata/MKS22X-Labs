@@ -32,6 +32,7 @@ public class Merge {
   }
   public static int[] mergesortH(int[] data){
     if (data.length < 2) return data;
+    if (data.length < 20) return insertionSort(data);
     int[] left = new int[data.length/2];
     for (int i = 0; i<left.length; i++){
       left[i] = data[i];
@@ -42,5 +43,23 @@ public class Merge {
     }
     //System.out.println(Arrays.toString(data)+"  "+Arrays.toString(left)+"  "+Arrays.toString(right));
     return merge(mergesortH(left),mergesortH(right));
+  }
+  public static int[] insertionSort(int[] data){
+    int current;
+    for (int i = 1; i<data.length; i++){
+      if (data[i] < data[i-1]) {
+        current = data[i];
+        for (int j = i; j>0; j--){
+          if (current < data[j-1]) {
+            data[j] = data[j-1];
+            data[j-1] = current;
+          } else {
+            data[j] = current;
+            j = 0;
+          }
+        }
+      }
+    }
+    return data;
   }
 }
