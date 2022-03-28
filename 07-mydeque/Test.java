@@ -6,6 +6,7 @@ public class Test {
     a.addFirst("test2");
     a.addFirst("test3");
     System.out.println(a.toStringDebug());
-    System.out.println(a);
+    System.out.println(a.size());
+    //ystem.out.println(a);
   }
 }

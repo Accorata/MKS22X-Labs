@@ -11,7 +11,9 @@ public class MyDeque<E>{
     E[] d = (E[])new Object[initialCapacity];
     data = d;
   }
-  // public int size(){ }
+  public int size(){
+    return size;
+  }
   // public String toString(){
   //   String ans = "[";
   //   for (int i = start; i<size; i++) {
