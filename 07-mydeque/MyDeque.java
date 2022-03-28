@@ -4,11 +4,13 @@ public class MyDeque<E>{
   private int start, end;
 
   public MyDeque(){
+    this(10);
+  }
+  public MyDeque(int initialCapacity){
     @SuppressWarnings("unchecked")
-    E[] d = (E[])new Object[10];
+    E[] d = (E[])new Object[initialCapacity];
     data = d;
   }
-  // public MyDeque(int initialCapacity){  }
   // public int size(){ }
   public String toString(){
     String ans = "[";
