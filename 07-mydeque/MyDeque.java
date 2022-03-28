@@ -33,17 +33,25 @@ public class MyDeque<E>{
   }
   public void addFirst(E element){
     if (element == null) throw new NullPointerException();
-    if (start <= 0) start = data.length;
-    data[start-1] = element;
+    if (size == 0) {
+      data[start] = element;
+    } else {
+      if (start <= 0) start = data.length;
+      data[start-1] = element;
+      start--;
+    }
     size++;
-    start--;
   }
   public void addLast(E element){
     if (element == null) throw new NullPointerException();
-    if (end >= data.length) end = -1;
-    data[end+1] = element;
+    if (size == 0) {
+      data[end] = element;
+    } else {
+      if (end >= data.length) end = -1;
+      data[end+1] = element;
+      end++;
+    }
     size++;
-    end++;
   }
   // public E removeFirst(){ }
   // public E removeLast(){ }
