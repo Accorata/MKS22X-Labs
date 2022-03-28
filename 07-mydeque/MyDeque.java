@@ -13,9 +13,10 @@ public class MyDeque<E>{
   public String toString(){
     String ans = "[";
     for (int i = 0; i<size; i++) {
-      ans += data[i] + ", ";
+      ans += data[i];
+      if (i != size-1) ans += ", ";
     }
-    return ans.substring(0,ans.length()-2) + "]";
+    return ans + "]";
   }
   // public void addFirst(E element){ }
   // public void addLast(E element){ }
