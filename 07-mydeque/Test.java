@@ -5,8 +5,10 @@ public class Test {
     a.addFirst("test1");
     a.addFirst("test2");
     a.addFirst("test3");
+    a.addLast(null);
     System.out.println(a.toStringDebug());
-    System.out.println(a.size());
+    System.out.println(a.getFirst());
+    System.out.println(a.getLast());
     //ystem.out.println(a);
   }
 }
