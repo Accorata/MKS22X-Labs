@@ -42,6 +42,7 @@ public class MyDeque<E>{
   }
   public void addFirst(E element){
     if (element == null) throw new NullPointerException();
+    if (size >= data.length) resize();
     if (size == 0) {
       data[start] = element;
     } else {
@@ -53,6 +54,7 @@ public class MyDeque<E>{
   }
   public void addLast(E element){
     if (element == null) throw new NullPointerException();
+    if (size >= data.length) resize();
     if (size == 0) {
       data[end] = element;
     } else {
@@ -63,6 +65,7 @@ public class MyDeque<E>{
     size++;
   }
   public E removeFirst(){
+    if (data[start] == null) throw new NoSuchElementException();
     E value = data[start];
     data[start] = null;
     size--;
@@ -71,6 +74,7 @@ public class MyDeque<E>{
     return value;
   }
   public E removeLast(){
+    if (data[end] == null) throw new NoSuchElementException();
     E value = data[end];
     data[end] = null;
     size--;
@@ -85,5 +89,22 @@ public class MyDeque<E>{
   public E getLast(){
     if (data[end] == null) throw new NoSuchElementException();
     return data[end];
+  }
+  private void resize(){
+    @SuppressWarnings("unchecked")
+    E[] n = (E[])new Object[size*2+1];
+    int limit = end;
+    if (end < start) limit = data.length-1;
+    for (int i = 0; i<size; i++){
+      n[i] = data[i+start];
+    }
+    // if (end < start) {
+    //   for (int i = 0; i<=end; i++) {
+    //     n[i+5] = data[i];
+    //   }
+    // }
+    start = 0;
+    end = size-1;
+    data = n;
   }
 }
