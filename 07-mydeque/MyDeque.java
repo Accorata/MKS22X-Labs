@@ -95,14 +95,15 @@ public class MyDeque<E>{
     E[] n = (E[])new Object[size*2+1];
     int limit = end;
     if (end < start) limit = data.length-1;
-    for (int i = 0; i<size; i++){
-      n[i] = data[i+start];
+    for (int i = start; i<=limit; i++){
+      n[i-start] = data[i];
     }
-    // if (end < start) {
-    //   for (int i = 0; i<=end; i++) {
-    //     n[i+5] = data[i];
-    //   }
-    // }
+    if (end < start) {
+      int offset = size-end-1;
+      for (int i = 0; i<=end; i++) {
+        n[i+offset] = data[i];
+      }
+    }
     start = 0;
     end = size-1;
     data = n;
