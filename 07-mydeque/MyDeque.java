@@ -53,7 +53,13 @@ public class MyDeque<E>{
     }
     size++;
   }
-  // public E removeFirst(){ }
+  public E removeFirst(){
+    E value = data[start];
+    data[start] = null;
+    size--;
+    if(size != 0) start++;
+    return value;
+  }
   // public E removeLast(){ }
   public E getFirst(){
     if (data[start] == null) throw new NoSuchElementException();

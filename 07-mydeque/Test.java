@@ -7,6 +7,11 @@ public class Test {
     // a.addFirst("test3");
     a.addLast("last1");
     System.out.println(a.toStringDebug());
+    System.out.println(a.removeFirst());
+    System.out.println(a.removeFirst());
+    System.out.println(a.toStringDebug());
+    a.addLast("last2");
+    System.out.println(a.toStringDebug());
     // System.out.println(a.getFirst());
     // System.out.println(a.getLast());
     //ystem.out.println(a);
