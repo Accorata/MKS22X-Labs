@@ -1,7 +1,7 @@
 public class Test {
   public static void main(String[] args) {
     MyDeque<String> a = new MyDeque<String>();
-    System.out.println(a.toStringDebug());
+    //System.out.println(a.toStringDebug());
     a.addFirst("test1");
     a.addFirst("test1");
     // a.addFirst("test2");
@@ -11,8 +11,10 @@ public class Test {
     // System.out.println(a.removeFirst());
     a.addLast("last2");
     System.out.println(a.toStringDebug());
-    System.out.println(a.removeFirst());
+    System.out.println(a);
+    a.removeFirst();
     System.out.println(a.toStringDebug());
+    System.out.println(a);
     // System.out.println(a.getFirst());
     // System.out.println(a.getLast());
     //ystem.out.println(a);

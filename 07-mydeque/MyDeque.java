@@ -15,14 +15,23 @@ public class MyDeque<E>{
   public int size(){
     return size;
   }
-  // public String toString(){
-  //   String ans = "[";
-  //   for (int i = start; i<size; i++) {
-  //     ans += data[i];
-  //     if (i != size-1) ans += ", ";
-  //   }
-  //   return ans + "]";
-  // }
+  public String toString(){
+    String ans = "[";
+    int limit = end;
+    if (end < start) limit = data.length-1;
+    for (int i = start; i<=limit; i++) {
+      ans += data[i];
+      if (i != limit) ans += ", ";
+    }
+    if (end < start) {
+      ans += ", ";
+      for (int i = 0; i<=end; i++) {
+        ans += data[i];
+        if (i != end) ans += ", ";
+      }
+    }
+    return ans + "]";
+  }
   public String toStringDebug(){
     String ans = "[";
     for (int i = 0; i<data.length; i++) {
