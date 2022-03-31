@@ -15,19 +15,19 @@ public class Calculator{
       String val = input.next();
       //System.out.println(val);
       if (val.equals("*")) {
-        stack.addLast(stack.getLast() * stack.getLast());
+        stack.addLast(stack.removeLast() * stack.removeLast());
       } else if (val.equals("/")) {
-        double last = stack.getLast();
-        stack.addLast(stack.getLast() / last);
+        double last = stack.removeLast();
+        stack.addLast(stack.removeLast() / last);
       } else if (val.equals("+")) {
-        stack.addLast(stack.getLast() + stack.getLast());
+        stack.addLast(stack.removeLast() + stack.removeLast());
       } else if (val.equals("-")) {
-        double last = stack.getLast();
-        stack.addLast(stack.getLast() - last);
+        double last = stack.removeLast();
+        stack.addLast(stack.removeLast() - last);
       } else {
         stack.addLast(Double.parseDouble(val));
       }
     }
-    return stack.getLast();
+    return stack.removeLast();
   }
 }
