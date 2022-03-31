@@ -4,6 +4,6 @@ public class Test {
     System.out.println(Calculator.eval("10 2.0 +")); //12.0
     System.out.println(Calculator.eval("8 2 + 99 9 - * 2 + 9 -")); //893.0
     System.out.println(Calculator.eval("1 2 3 4 5 + * - -")); //26.0
-
+    System.out.println(Calculator.eval("1 *")); //26.0
   }
 }
