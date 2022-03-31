@@ -16,6 +16,7 @@ public class MyDeque<E>{
     return size;
   }
   public String toString(){
+    if (start == end) return "[]";
     String ans = "[";
     int limit = end;
     if (end < start) limit = data.length-1;
@@ -58,7 +59,7 @@ public class MyDeque<E>{
     if (size == 0) {
       data[end] = element;
     } else {
-      if (end >= data.length) end = -1;
+      if (end >= data.length-1) end = -1;
       data[end+1] = element;
       end++;
     }
@@ -93,19 +94,21 @@ public class MyDeque<E>{
   private void resize(){
     @SuppressWarnings("unchecked")
     E[] n = (E[])new Object[size*2+1];
-    int limit = end;
-    if (end < start) limit = data.length-1;
-    for (int i = start; i<=limit; i++){
-      n[i-start] = data[i];
-    }
-    if (end < start) {
-      int offset = size-end-1;
-      for (int i = 0; i<=end; i++) {
-        n[i+offset] = data[i];
+    if (size > 0) {
+      int limit = end;
+      if (end < start) limit = data.length-1;
+      for (int i = start; i<=limit; i++){
+        n[i-start] = data[i];
       }
+      if (end < start) {
+        int offset = size-end-1;
+        for (int i = 0; i<=end; i++) {
+          n[i+offset] = data[i];
+        }
+      }
+      end = size-1;
     }
     start = 0;
-    end = size-1;
     data = n;
   }
 }
