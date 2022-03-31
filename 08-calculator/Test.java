@@ -5,6 +5,10 @@ public class Test {
     // System.out.println(Calculator.eval("8 2 + 99 9 - * 2 + 9 -")); //893.0
     // System.out.println(Calculator.eval("1 2 3 4 5 + * - -")); //26.0
     //System.out.println(Calculator.eval("1 *")); //26.0
+    tests();
+    //System.out.println(36%7);
+  }
+  public static void tests(){
     int i = 0;
     while (i < 20) {
       String calc = generateCalc();
