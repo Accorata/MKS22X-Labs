@@ -1,3 +1,4 @@
+import java.util.*;
 public class Calculator{
       /*Evaluate a postfix expression stored in s.
       *Assume valid postfix notation, of ints doubles and operators separated by spaces.
@@ -8,6 +9,12 @@ public class Calculator{
       *        Either "too many operands" or "too few operands for operation _" replace _ with +,- etc.
       */
   public static double eval(String s){
-    
+    Scanner input = new Scanner(s);
+    ArrayDeque<Double> stack = new ArrayDeque<Double>();
+    while (input.hasNext()) {
+      String val = input.next();
+      stack.addLast(val);
+    }
+    return 0;
   }
 }
