@@ -13,8 +13,21 @@ public class Calculator{
     ArrayDeque<Double> stack = new ArrayDeque<Double>();
     while (input.hasNext()) {
       String val = input.next();
-      stack.addLast(val);
+      //System.out.println(val);
+      if (val.equals("*")) {
+        stack.addLast(stack.getLast() * stack.getLast());
+      } else if (val.equals("/")) {
+        double last = stack.getLast();
+        stack.addLast(stack.getLast() / last);
+      } else if (val.equals("+")) {
+        stack.addLast(stack.getLast() + stack.getLast());
+      } else if (val.equals("-")) {
+        double last = stack.getLast();
+        stack.addLast(stack.getLast() - last);
+      } else {
+        stack.addLast(Double.parseDouble(val));
+      }
     }
-    return 0;
+    return stack.getLast();
   }
 }
