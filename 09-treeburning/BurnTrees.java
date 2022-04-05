@@ -33,6 +33,22 @@ public class BurnTrees{
       int x = current[0];
       int y = current[1];
       map[x][y] = ASH;
+      if (x-1 >= 0 && map[x-1][y] == TREE) {
+        map[x-1][y] = FIRE;
+        fireSpaces.addFirst(new int[]{x-1, y});
+      }
+      if (y-1 >= 0 && map[x][y-1] == TREE) {
+        map[x][y-1] = FIRE;
+        fireSpaces.addFirst(new int[]{x, y-1});
+      }
+      if (x+1 < map.length && map[x+1][y] == TREE) {
+        map[x+1][y] = FIRE;
+        fireSpaces.addFirst(new int[]{x+1, y});
+      }
+      if (y+1 < map[0].length && map[x][y+1] == TREE) {
+        map[x][y+1] = FIRE;
+        fireSpaces.addFirst(new int[]{x, y+1});
+      }
     }
     //YOU MUST IMPLEMENT THE REST OF THIS METHOD
     //(BEFORE WRITING ANY CODE READ ALL OF THE CODE AND SEE HOW IT FITS TOGETHER)
