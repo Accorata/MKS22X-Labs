@@ -105,7 +105,7 @@ public class BurnTrees{
       BurnTrees b = new BurnTrees(WIDTH,HEIGHT,DENSITY);
 
 
-      int ans = b.animate(DELAY);//animate all screens
+      int ans = b.run();//b.animate(DELAY);//animate all screens
       System.out.println(ans);//print the final answer
 
       //int ans = b.outputAll();//print all screens one after another
