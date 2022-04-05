@@ -7,7 +7,7 @@ public class BurnTrees{
   private static final int ASH = 3;
   private static final int SPACE = 0;
 
-  private ArrayDeque<int[]> fire = new ArrayDeque<int[]>();
+  private ArrayDeque<int[]> fireSpaces = new ArrayDeque<int[]>();
 
   /*Determine if the simulation is still burning
    *@return false if any fires are still burning, true otherwise
@@ -16,6 +16,7 @@ public class BurnTrees{
     //YOU MUST IMPLEMENT THIS METHOD
     //(BEFORE WRITING ANY CODE READ ALL OF THE CODE AND SEE HOW IT FITS TOGETHER)
     //HINT: do not check the board for fire which is an n^2 operation
+    if (fireSpaces.size() == 0) return true;
     return false;//placeholder for compilation purposes
   }
 
@@ -26,6 +27,13 @@ public class BurnTrees{
    */
   public void tick(){
     ticks++;//leave this here.
+    int fire = fireSpaces.size();
+    for (int i = 0; i<fire; i++) {
+      int[] current = fireSpaces.removeLast();
+      int x = current[0];
+      int y = current[1];
+      map[x][y] = ASH;
+    }
     //YOU MUST IMPLEMENT THE REST OF THIS METHOD
     //(BEFORE WRITING ANY CODE READ ALL OF THE CODE AND SEE HOW IT FITS TOGETHER)
   }
@@ -58,6 +66,7 @@ public class BurnTrees{
     for(int i = 0; i < map.length; i++){
       if(map[i][0]==TREE){
         map[i][0]=FIRE;
+        fireSpaces.addFirst(new int[]{i, 0});
       }
     }
   }
