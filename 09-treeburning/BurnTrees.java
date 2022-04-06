@@ -114,7 +114,6 @@ public class BurnTrees{
 
 
 
-
   /***********************DO NOT UPDATE THINGS BELOW HERE**************************/
 
   /*DO NOT UPDATE THIS
