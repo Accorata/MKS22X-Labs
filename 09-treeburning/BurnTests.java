@@ -5,9 +5,18 @@ public class BurnTests {
     double start = 0;
     double end = 1;
     double interval = 0.1;
-    //for (int i=0; i<3; i++) {
-      System.out.println(Arrays.toString(test(start,end,interval)));
-    //}
+    for (int i=0; i<3; i++) {
+      double[] vals = test(start,end,interval);
+      System.out.println(Arrays.toString(vals));
+      if (vals[1] < vals[3]){
+        start = vals[1];
+        end = vals[3];
+      } else {
+        start = vals[3];
+        end = vals[1];
+      }
+      interval /= 10;
+    }
 
   }
   public static double average (int size, double density){
@@ -20,7 +29,7 @@ public class BurnTests {
   }
   public static double[] test(double start, double end, double interval){
     double[] max = new double[]{0,0,0,0};
-    for (double i = start; i<end; i+=interval){
+    for (double i = start; i<=end; i+=interval){
       double val = average(100,i);
       if (val > max[0]) {
         max[2] = max[0];
@@ -31,7 +40,7 @@ public class BurnTests {
         max[2] = val;
         max[3] = i;
       }
-      System.out.println(i+": "+val); //0.61
+      System.out.println(i+": "+val); //(double)((int)(i*100000)/1000)+"%
     }
     return max;
   }
