@@ -1,24 +1,5 @@
 import java.util.Arrays;
 public class BurnTests {
-  public static void main(String[] args) {
-    //System.out.println(average(100,0.5));
-    int size = Integer.parseInt(args[0]);
-    double start = 0;
-    double end = 1;
-    double interval = 0.1;
-    for (int i=0; i<3; i++) {
-      double[] vals = test(start,end,interval, size);
-      System.out.println(Arrays.toString(vals));
-      if (vals[1] < vals[3]){
-        start = vals[1];
-        end = vals[3];
-      } else {
-        start = vals[3];
-        end = vals[1];
-      }
-      interval /= 10;
-    }
-  }
   public static double average (int size, double density){
     double ans = 0;
     for (int i = 0; i<1000; i++) {

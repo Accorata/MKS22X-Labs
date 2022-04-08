@@ -89,28 +89,48 @@ public class BurnTrees{
 
 
 
-    public static void main(String[]args){
-      int WIDTH = 20;
-      int HEIGHT = 20;
-      int DELAY = 200;
-      double DENSITY = .7;
-      if(args.length > 1){
-        WIDTH = Integer.parseInt(args[0]);
-        HEIGHT = Integer.parseInt(args[1]);
-        DENSITY = Double.parseDouble(args[2]);
+  public static void main(String[] args) {
+    //System.out.println(average(100,0.5));
+    int size = 100;
+    if (args.length > 0) size = Integer.parseInt(args[0]);
+    double start = 0;
+    double end = 1;
+    double interval = 0.1;
+    for (int i=0; i<3; i++) {
+      double[] vals = BurnTests.test(start,end,interval, size);
+      System.out.println(Arrays.toString(vals));
+      if (vals[1] < vals[3]){
+        start = vals[1];
+        end = vals[3];
+      } else {
+        start = vals[3];
+        end = vals[1];
       }
-      if(args.length > 3){
-        DELAY = Integer.parseInt(args[3]);
-      }
-      BurnTrees b = new BurnTrees(WIDTH,HEIGHT,DENSITY);
-
-
-      int ans = b.run();//b.animate(DELAY);//animate all screens
-      System.out.println(ans);//print the final answer
-
-      //int ans = b.outputAll();//print all screens one after another
-      //System.out.println(ans);//print the final answer
+      interval /= 10;
     }
+  }
+    // public static void main(String[]args){
+    //   int WIDTH = 20;
+    //   int HEIGHT = 20;
+    //   int DELAY = 200;
+    //   double DENSITY = .7;
+    //   if(args.length > 1){
+    //     WIDTH = Integer.parseInt(args[0]);
+    //     HEIGHT = Integer.parseInt(args[1]);
+    //     DENSITY = Double.parseDouble(args[2]);
+    //   }
+    //   if(args.length > 3){
+    //     DELAY = Integer.parseInt(args[3]);
+    //   }
+    //   BurnTrees b = new BurnTrees(WIDTH,HEIGHT,DENSITY);
+    //
+    //
+    //   int ans = b.run();//b.animate(DELAY);//animate all screens
+    //   System.out.println(ans);//print the final answer
+    //
+    //   //int ans = b.outputAll();//print all screens one after another
+    //   //System.out.println(ans);//print the final answer
+    // }
 
 
 
