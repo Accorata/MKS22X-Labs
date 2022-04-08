@@ -95,8 +95,8 @@ public class BurnTrees{
     if (args.length > 0) size = Integer.parseInt(args[0]);
     double start = 0;
     double end = 1;
-    double interval = 0.1;
-    for (int i=0; i<3; i++) {
+    double interval = 0.05;
+    for (int i=0; i<2; i++) {
       double[] vals = BurnTests.test(start,end,interval, size);
       System.out.println(Arrays.toString(vals));
       if (vals[1] < vals[3]){
@@ -106,7 +106,7 @@ public class BurnTrees{
         start = vals[3];
         end = vals[1];
       }
-      interval /= 10;
+      interval /= 5;
     }
   }
     // public static void main(String[]args){
