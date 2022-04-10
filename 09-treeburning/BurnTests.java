@@ -2,11 +2,11 @@ import java.util.Arrays;
 public class BurnTests {
   public static double average (int size, double density){
     double ans = 0;
-    for (int i = 0; i<5000; i++) {
+    for (int i = 0; i<1000; i++) {
       BurnTrees b = new BurnTrees(size,size,density);
       ans += b.run();
     }
-    return ans/5000;
+    return ans/1000;
   }
   public static double[] test(double start, double end, double interval, int size){
     double[] max = new double[]{0,0,0,0};

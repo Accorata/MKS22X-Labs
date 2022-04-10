@@ -8,9 +8,13 @@ I choose 5000 repetitions as the variations between averages of different tests 
 
 3. What did your testing show about changing the board size?
 
+At smaller sizes, changing the size had larger effects, making densities like 0.80 the best. But as the board sized got larger and larger, the best density stayed relatively the same around 0.60.
+
 4. Knowing that there were differences based on boardsize, what was the relationship between the board size and the maximum burn time? How did you test this?
 
 5. What density of trees yields the maximum burn time?
+
+Exact Results:
 
 |Density: (100x100 Size)|Average Maximum Time: (5000 Repetitions)|
 |:---:|:---:|
