@@ -56,11 +56,11 @@ void avatar(int x, int y) {
     stroke(0);
     line(0, 50, 40*cos(PI/5), 40*sin(PI/5));
     noStroke();
-    fill(30);
+    fill(0,225);
     ellipse(0, 50, 10, 20);
     pop();
   }
-  fill(150);
+  fill(100,150);
   ellipse(x, y, 40, 40);
 }
 int change(int value) {
