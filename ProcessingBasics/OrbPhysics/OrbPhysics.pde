@@ -1,17 +1,18 @@
 ArrayList<Orb>orbList;
+float G = 20;
+boolean Gravity = true;
+Orb center;
     void setup() {
       size(1000, 800);
       orbList = new ArrayList<Orb>();
+      center = new Orb(width/2,height/2,0,0,40);
     }
     void mouseClicked() {
-      //add a new Orb to the orbList, constructed as follows:
-      //The x and y positions are the same as the mouse
-      //the radius should be between in the range [20.0,70.0)
-      //the xSpeed and ySpeed should be in the range [-3.0,3.0)
       orbList.add(new Orb(mouseX,mouseY,random(6)-3,random(6)-3,random(50)+20));
     }
     void draw() {
       background(255);
+      center.display();
       for (Orb o : orbList) {
         o.move();
         o.display();
@@ -44,31 +45,29 @@ public class Orb{
       }
 
       void move(){
-        //PART 2
-        //change the x based on the xSpeed
-        //change the y based on the ySpeed
         x += xSpeed;
         y += ySpeed;
-
-        //PART 3
-        //Change the speed when you collide with the end of the screen (all 4 sides)
         if (x-radius/2 < 0){
           xSpeed *= -1;
+          x = radius/2;
         }
-        if(x > width+radius/2){
+        if(x > width-radius/2){
           xSpeed *= -1;
+          x = width-radius/2;
         }
         if (y-radius/2 < 0){
           ySpeed *= -1;
+          y = radius/2;
         }
-        if (y > height+radius/2){
+        if (y > height-radius/2){
           ySpeed *= -1;
+          y = height-radius/2;
         }
-
-        //Part 4
-        //Add a small adjustment for gravity. Gravity is a ySpeed acceleration...
-        //You don't need a variable for this if every object experiences the same
-        //gravitational constant (find the value that looks nice experimentally, 9.8 will not work well).
         ySpeed += 0.02;
+      }
+      void attract(Orb other) {
+        //float distanceSqr = ;
+        xSpeed += G * x-other.x / sq(x-other.x) + sq(y-other.y);
+        ySpeed += G * y-other.y / sq(x-other.x) + sq(y-other.y);
       }
     }
