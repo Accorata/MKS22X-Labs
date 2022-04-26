@@ -1,6 +1,6 @@
 ArrayList<Orb>orbList;
 float G = 20;
-boolean Gravity = true;
+boolean Gravity = false;
 Orb center;
     void setup() {
       size(1000, 800);
@@ -63,11 +63,15 @@ public class Orb{
           ySpeed *= -1;
           y = height-radius/2;
         }
-        ySpeed += 0.02;
+        if(Gravity) {
+          ySpeed += 0.15;
+        } else {
+          this.attract(center);
+        }
       }
       void attract(Orb other) {
         //float distanceSqr = ;
-        xSpeed += G * x-other.x / sq(x-other.x) + sq(y-other.y);
-        ySpeed += G * y-other.y / sq(x-other.x) + sq(y-other.y);
+        xSpeed += G * x-other.x / (sq(x-other.x) + sq(y-other.y));
+        ySpeed += G * y-other.y / (sq(x-other.x) + sq(y-other.y));
       }
     }
