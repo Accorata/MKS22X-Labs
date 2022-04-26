@@ -1,6 +1,6 @@
 ArrayList<Orb>orbList;
     void setup() {
-      size(1000, 700);
+      size(1000, 800);
       orbList = new ArrayList<Orb>();
     }
     void mouseClicked() {
@@ -38,6 +38,7 @@ public class Orb{
 
 
       void display(){
+        noStroke();
         fill(c);
         ellipse(x,y,radius,radius);
       }
@@ -51,10 +52,16 @@ public class Orb{
 
         //PART 3
         //Change the speed when you collide with the end of the screen (all 4 sides)
-        if (x <= 0 || x >= width){
+        if (x-radius/2 < 0){
           xSpeed *= -1;
         }
-        if (y <= 0 || y >= height){
+        if(x > width+radius/2){
+          xSpeed *= -1;
+        }
+        if (y-radius/2 < 0){
+          ySpeed *= -1;
+        }
+        if (y > height+radius/2){
           ySpeed *= -1;
         }
 
@@ -62,6 +69,6 @@ public class Orb{
         //Add a small adjustment for gravity. Gravity is a ySpeed acceleration...
         //You don't need a variable for this if every object experiences the same
         //gravitational constant (find the value that looks nice experimentally, 9.8 will not work well).
-
+        ySpeed += 0.02;
       }
     }
