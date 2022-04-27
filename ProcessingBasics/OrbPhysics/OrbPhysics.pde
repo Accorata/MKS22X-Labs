@@ -1,5 +1,5 @@
 ArrayList<Orb>orbList;
-float G = 20;
+float G = 40;
 boolean Gravity = false;
 Orb center;
     void setup() {
@@ -8,7 +8,7 @@ Orb center;
       center = new Orb(width/2,height/2,0,0,40);
     }
     void mouseClicked() {
-      orbList.add(new Orb(mouseX,mouseY,random(6)-3,random(6)-3,random(50)+20));
+      orbList.add(new Orb(mouseX,mouseY,5,0,20));
     }
     void draw() {
       background(255);
@@ -71,7 +71,10 @@ public class Orb{
       }
       void attract(Orb other) {
         //float distanceSqr = ;
-        xSpeed += G * x-other.x / (sq(x-other.x) + sq(y-other.y));
-        ySpeed += G * y-other.y / (sq(x-other.x) + sq(y-other.y));
+        float dist_x = x-other.x;
+        float dist_y = y-other.y;
+        float dist = sq(dist_x) + sq(dist_y);
+        xSpeed -= G * (dist_x) / dist;
+        ySpeed -= G * (dist_y) / dist;
       }
     }
