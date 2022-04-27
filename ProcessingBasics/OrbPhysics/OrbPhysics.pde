@@ -21,6 +21,11 @@ void draw() {
   for (Orb o : orbList) {
     o.move();
     o.display();
+      if (mode == "ORBIT") {
+      center.attract(o);
+    } else if (mode == "SPRING") {
+      center.attract(o);
+    }
   }
   fill(0);
   text(frameRate, 20, 20);
@@ -86,10 +91,6 @@ public class Orb {
         ySpeed *= -1;
         y = height-radius/2;
       }
-    } else if (mode == "ORBIT") {
-      this.attract(center);
-    } else if (mode == "SPRING") {
-      this.attract(center);
     }
     if (Gravity) {
       ySpeed += 0.15;
