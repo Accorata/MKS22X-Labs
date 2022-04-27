@@ -1,8 +1,8 @@
 ArrayList<Orb>orbList;
-float G = 40;
+float G = 20;
 boolean Gravity = false;
 boolean Background = true;
-String mode = "GRAVITY";
+String mode = "ORBIT";
 Orb center;
 void setup() {
   size(1000, 800);
@@ -98,10 +98,10 @@ public class Orb {
   }
   void attract(Orb other) {
     //float distanceSqr = ;
-    float dist_x = x-other.x;
-    float dist_y = y-other.y;
+    float dist_x = other.x-x;
+    float dist_y = other.y-y;
     float dist = sq(dist_x) + sq(dist_y);
-    xSpeed -= G * (dist_x) / dist;
-    ySpeed -= G * (dist_y) / dist;
+    other.xSpeed -= G * (dist_x) / dist;
+    other.ySpeed -= G * (dist_y) / dist;
   }
 }
