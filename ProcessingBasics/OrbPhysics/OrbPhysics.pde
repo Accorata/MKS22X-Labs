@@ -3,7 +3,7 @@ float G = 25;
 boolean Gravity = false;
 boolean Background = true;
 String mode = "ORBIT";
-float SPRING_CONSTANT = 0.01, SPRING_LENGTH = 100, SPRING_DAMPEN = 0.1;
+float SPRING_CONSTANT = 0.01, SPRING_LENGTH = 100, SPRING_DAMPEN = 0.99;
 Orb center;
 void setup() {
   size(1000, 800);
@@ -31,6 +31,9 @@ void draw() {
   fill(0);
   text(frameRate, 20, 20);
   text(orbList.size(), 20, 40);
+  text(mode, 20, 60);
+  text("Gravity: "+Gravity, 20, 80);
+  text("Background: "+Background, 20, 100);
 }
 void keyPressed() {
   if (keyCode == 8) {
@@ -77,7 +80,7 @@ public class Orb {
     fill(c);
     ellipse(x, y, radius, radius);
     stroke(0);
-    line(x, y, x+xSpeed*2, y+ySpeed*2);
+    line(x, y, x+xSpeed*3, y+ySpeed*3);
   }
 
   void move() {
@@ -116,10 +119,11 @@ public class Orb {
   void attractSpring(Orb other) {
     stroke(0);
     line(x,y,other.x,other.y);
-    float dist_x = other.x-x;
-    float dist_y = other.y-y;
-    float dist = abs(SPRING_LENGTH - sqrt(sq(dist_x) + sq(dist_y)));
-    other.xSpeed -= SPRING_CONSTANT * dist * dist_x/abs(dist_x);
-    other.ySpeed -= SPRING_CONSTANT * dist * dist_y/abs(dist_y);
+    float dist_x = x-other.x;
+    float dist_y = y-other.y;
+    float dist = (sqrt(sq(dist_x) + sq(dist_y)));
+    other.xSpeed += SPRING_CONSTANT * abs(SPRING_LENGTH - dist) * dist_x/dist;
+    other.ySpeed += SPRING_CONSTANT * abs(SPRING_LENGTH - dist) * dist_y/dist;
+    SPRING_CONSTANT *= SPRING_DAMPEN;
   }
 }
