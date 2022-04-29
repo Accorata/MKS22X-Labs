@@ -3,7 +3,7 @@ float G = 25;
 boolean Gravity = false;
 boolean Background = true;
 String mode = "ORBIT";
-float SPRING_CONSTANT = 0.01, SPRING_LENGTH = 100, SPRING_DAMPEN = 0.99;
+float SPRING_CONSTANT = 0.01, SPRING_LENGTH = 200, SPRING_DAMPEN = 0.995;
 Orb center;
 void setup() {
   size(1000, 800);
@@ -15,6 +15,9 @@ void mouseClicked() {
   orbList.add(new Orb(mouseX, mouseY, 5, 0, 20));
 }
 void draw() {
+  noStroke();
+  fill(255);
+  rect(10,0,120,120);
   if (Background) { 
     background(255);
   }
@@ -112,7 +115,7 @@ public class Orb {
     //float distanceSqr = ;
     float dist_x = x-other.x;
     float dist_y = y-other.y;
-    float dist = sq(dist_x) + sq(dist_y);
+    float dist = sq(dist_x)+sq(dist_y);
     other.xSpeed += G * (dist_x) / dist;
     other.ySpeed += G * (dist_y) / dist;
   }
@@ -121,9 +124,10 @@ public class Orb {
     line(x,y,other.x,other.y);
     float dist_x = x-other.x;
     float dist_y = y-other.y;
-    float dist = (sqrt(sq(dist_x) + sq(dist_y)));
-    other.xSpeed += SPRING_CONSTANT * abs(SPRING_LENGTH - dist) * dist_x/dist;
-    other.ySpeed += SPRING_CONSTANT * abs(SPRING_LENGTH - dist) * dist_y/dist;
-    SPRING_CONSTANT *= SPRING_DAMPEN;
+    float dist = dist(x,y,other.x,other.y);
+    other.xSpeed += SPRING_CONSTANT * (dist - SPRING_LENGTH) * dist_x/dist;
+    other.ySpeed += SPRING_CONSTANT * (dist - SPRING_LENGTH) * dist_y/dist;
+    other.xSpeed *= SPRING_DAMPEN;
+    other.ySpeed *= SPRING_DAMPEN;
   }
 }
