@@ -1,4 +1,3 @@
-
 final static int SPRING = 2;
 final static float SPRING_LENGTH = 50;
 final static float SPRING_DAMPEN = 0.990;

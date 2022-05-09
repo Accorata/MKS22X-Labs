@@ -1,3 +1,4 @@
+
 public class OrbNode {
   float x, y;
   float dx, dy;
@@ -29,8 +30,8 @@ public class OrbNode {
     float force = (dist - SPRING_LENGTH) * SPRING_CONSTANT;
     float displacex = (x - other.x) ;
     float displacey = (y - other.y) ;
-    other.dx += displacex * force / dist;
-    other.dy += displacey * force / dist;
+    other.dx += displacex * force / dist / 100000000;
+    other.dy += displacey * force / dist / 100000000;
     other.dx*= SPRING_DAMPEN;
     other.dy*= SPRING_DAMPEN;
   }
@@ -41,7 +42,9 @@ public class OrbNode {
   void move() {
     //have prev and next apply spring force to this node;
     /*you write this part*/
-
+    if (prev != null) springAttract(prev);
+    if (next != null) springAttract(next);
+    
     //apply velocity to position
     x+=dx;
     y+=dy;
