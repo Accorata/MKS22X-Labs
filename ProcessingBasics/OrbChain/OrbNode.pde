@@ -17,14 +17,11 @@ public class OrbNode {
     radius = radius_;
     c = color(random(255), random(255), random(255), 200);
   }
-  /**
-   *complete this method
-   */
   void display() {
     fill(c);
     ellipse(x, y, radius*2, radius*2);
-    //If next or previous exist, draw lines to them! (aim for slightly off center)
-    /*you write this part*/
+    if (prev != null) line(x, y, prev.x, prev.y);
+    if (next != null) line(x, y, next.x, next.y);
   }
 
   void springAttract(OrbNode other) {
