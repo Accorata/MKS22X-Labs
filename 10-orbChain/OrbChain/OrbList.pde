@@ -15,6 +15,19 @@ public class OrbList {
     last.prev.next = orb;
     last.prev = orb;
   }
+  void add(int xcor,OrbNode toBeAdded){
+    OrbNode current = first;
+    while (current != null && xcor >= current.x){
+      current.move();
+      current = current.next;
+    }
+    toBeAdded.next = current;
+    if (current != null){
+      toBeAdded.prev = current.prev;
+      current.prev.next = toBeAdded;
+      current.prev = toBeAdded;
+    }
+  }
   void processAll() {
     OrbNode current = first;
     while (current != null){
