@@ -13,6 +13,10 @@ void setup() {
 void mouseClicked() {
   if (CLICK_MODE == "Add"){
     orbs.add(new OrbNode(mouseX, mouseY, 0, 0, 30));
+  } else if (CLICK_MODE == "Insert"){
+    orbs.add(mouseX, new OrbNode(mouseX, mouseY, 0, 0, 30));
+  } else {
+    
   }
 }
 void draw() {

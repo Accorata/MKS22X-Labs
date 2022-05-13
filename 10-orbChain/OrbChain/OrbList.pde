@@ -28,6 +28,16 @@ public class OrbList {
       current.prev = toBeAdded;
     }
   }
+  OrbNode getNodeAt(int x, int y) {
+    OrbNode current = first;
+    while (current != null){
+      if (dist(x, y, current.x, current.y) <= current.radius) {
+        return current;
+      }
+      current = current.next;
+    }
+    return null;
+  }
   void processAll() {
     OrbNode current = first;
     while (current != null){

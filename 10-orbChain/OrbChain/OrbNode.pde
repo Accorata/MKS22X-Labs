@@ -1,8 +1,7 @@
-
 public class OrbNode {
   public float x, y;
   public float dx, dy;
-  float radius;
+  public float radius;
   color c;
   public OrbNode next, prev;
   public OrbNode() {
