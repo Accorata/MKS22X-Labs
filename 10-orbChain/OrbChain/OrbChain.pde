@@ -16,9 +16,13 @@ void draw() {
   background(255);
   orbs.processAll();
   orbs.display();
-  //if (keyPressed) {
-  //  if (keyCode == 1){
-  //    SPRING_CONSTANT += 0.005;
-  //  }
-  //}
+}
+void keyPressed() {
+  if (key == '1') {
+    SPRING_CONSTANT += 0.005;
+  } else if (key == '2') {
+    SPRING_CONSTANT -= 0.005;
+    if (SPRING_CONSTANT < 0) SPRING_CONSTANT = 0;
+  }
+  println(SPRING_CONSTANT);
 }

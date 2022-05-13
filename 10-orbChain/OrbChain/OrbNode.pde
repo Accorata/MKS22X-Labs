@@ -36,9 +36,6 @@ public class OrbNode {
     other.dy*= SPRING_DAMPEN;
   }
 
-  /**
-   *complete this method
-   */
   void move() {
     //have prev and next apply spring force to this node;
     if (prev != null) prev.springAttract(this);
