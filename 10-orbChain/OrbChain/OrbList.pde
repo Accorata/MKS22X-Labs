@@ -29,12 +29,13 @@ public class OrbList {
     }
   }
   void delete(OrbNode target) {
+    target = getNodeAt(mouseX, mouseY);
     if (target != null) {
       target.prev.next = target.next;
       target.next.prev = target.prev;
     }
   }
-  OrbNode getNodeAt(int x, int y) {
+  OrbNode getNodeAt(float x, float y) {
     OrbNode current = first.next;
     while (current != null && current != last){
       if (dist(x, y, current.x, current.y) <= current.radius) {
