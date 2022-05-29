@@ -55,7 +55,17 @@ void setup() {
       {0, 1, 2}
     })
   };
-  kernels[0].apply(car, output);
+  kernels[currentKernel].apply(car, output);
+  currentKernel++;
+}
+void draw(){
   image(car, 0, 0);
   image(output, car.width, 0);
+}
+void keyPressed() {
+  kernels[currentKernel].apply(car, output);
+  currentKernel++;
+  if (currentKernel >= 8) {
+    currentKernel = 0;
+  }
 }
